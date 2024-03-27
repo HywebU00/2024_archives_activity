@@ -1,0 +1,130 @@
+footer {
+  clear: both;
+  text-align: left;
+  font-size: rem(15);
+  padding: 2em 0;
+  background-color: #e8e8e8;
+  box-shadow: 0 -25px 30px rgba(0, 0, 0, 0.15);
+  .container {
+    @include gutter;
+  }
+  .footerTop {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #707070;
+    margin-bottom: 1em;
+    padding-bottom: 1em;
+    @include screen('mobile') {
+      flex-wrap: wrap;
+    }
+    .footerContact {
+      @include liReset();
+      color: #1d1d1d;
+      li {
+        margin-bottom: 0.5em;
+      }
+    }
+    i {
+      margin-right: 5px;
+      &::before {
+        background-color: #424242;
+      }
+    }
+  }
+  .footerBottom {
+    display: flex;
+    @include screen('mobile') {
+      flex-wrap: wrap;
+    }
+  }
+  // a {
+  //   text-decoration: none;
+  //   color: $colorPrimary;
+  //   &:hover,
+  //   &:focus-visible {
+  //     color: darken($colorPrimary, 10);
+  //   }
+  // }
+  .footerInfo {
+    flex: 1 1 auto;
+    @include screen('mobile') {
+      flex-basis: 100%;
+      margin-bottom: 1em;
+    }
+  }
+  .footerLogo {
+    flex: 0 1 190px;
+    @include screen('mobile') {
+      flex-basis: 100%;
+      margin-bottom: 1em;
+    }
+
+    img {
+      width: 190px;
+    }
+  }
+
+  // 版權連結
+  .footerLink {
+    @include liReset();
+    clear: both;
+    display: flex;
+    margin-left: -0.5em;
+    @include screen('mobile') {
+      flex-flow: row wrap;
+    }
+    li {
+      position: relative;
+      flex: 0 1 auto;
+      margin: 0 0 5px;
+      display: flex;
+      align-items: center;
+      @include screen('mobile') {
+        flex: 1 1 25%;
+      }
+      &::after {
+        content: '';
+        height: 18px;
+        width: 1px;
+        background-color: #1d1d1d;
+      }
+      &:last-child {
+        &::after {
+          content: none;
+        }
+      }
+      a {
+        display: block;
+        padding: 0.25em 0.5em;
+        color: #1d1d1d;
+        text-align: center;
+        transition: 0.3s ease-out;
+        white-space: nowrap;
+
+        &:hover,
+        &:focus-visible {
+          color: $aHover;
+        }
+      }
+    }
+  }
+  .update,
+  .counter {
+    display: inline-block;
+    margin-right: 5px;
+    em {
+      font-style: normal;
+      padding: 0 0.5em;
+    }
+  }
+  .footerIcon {
+    a {
+      display: inline-block;
+      vertical-align: top;
+      position: relative;
+    }
+    img {
+      max-width: 150px;
+    }
+  }
+}

@@ -1,0 +1,37 @@
+.breadcrumb {
+  padding: 0.1em 0em 0.1em;
+  font-size: rem(15);
+  margin: 0px auto 5px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  &::before {
+    content: '';
+    display: block;
+    width: 1em;
+    height: 1em;
+    mask-size: contain;
+    mask: url(../images/icon/icon_home.svg) center center no-repeat;
+    background-color: #242424;
+    margin-right: 8px;
+  }
+  ul {
+    @include liReset;
+    display: flex;
+    flex-flow: row wrap;
+    li {
+      margin: 0px 0.1em 0.1em 0px;
+      & + li {
+        &:before {
+          @extend %slash;
+        }
+      }
+      &[aria-current='page'] {
+        color: #15565a;
+      }
+    }
+  }
+  a {
+    @include aSetting($colorWord);
+  }
+}

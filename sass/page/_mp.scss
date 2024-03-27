@@ -1,0 +1,292 @@
+// 首頁區塊設定
+.mpSlider {
+  margin-bottom: 40px;
+  .container {
+  }
+  .swiper {
+    overflow: hidden;
+    border-radius: 2.625em;
+    box-shadow: 20px 0 0 0 rgba(255, 255, 255, 0.6), -20px 0 0 0 rgba(255, 255, 255, 0.6), 40px 0 0 0 rgba(255, 255, 255, 0.36), -40px 0 0 0 rgba(255, 255, 255, 0.36);
+    @media screen and (max-width: $containerMax) {
+      margin: 0 20px;
+      box-shadow: 10px 0 0 0 rgba(255, 255, 255, 0.6), -10px 0 0 0 rgba(255, 255, 255, 0.6), 20px 0 0 0 rgba(255, 255, 255, 0.36), -20px 0 0 0 rgba(255, 255, 255, 0.36);
+    }
+  }
+
+  .imgContainer {
+    // border-radius: 2.625em;
+    // overflow: hidden;
+    img {
+      object-fit: cover;
+      aspect-ratio: 5/2;
+    }
+  }
+}
+
+.adSlider {
+  padding: 3% 0 0;
+  .swiperBox {
+    padding: 0 50px;
+  }
+}
+
+.archivesMonth {
+  .mainVision {
+    padding: 1em 0;
+    .container {
+      display: flex;
+      @include screen('mobile') {
+        flex-wrap: wrap;
+      }
+    }
+    .caption {
+      margin-bottom: 2em;
+      width: 400px;
+      max-width: 100%;
+      text-align: justify;
+      color: #fff;
+      text-shadow: 5px 5px 10px $colorLight, -5px -5px 10px $colorLight, 5px -5px 10px $colorLight, -5px 5px 10px $colorLight;
+      position: relative;
+      z-index: 2;
+      //background: $colorLight;
+      @include screen('mobile') {
+        margin-bottom: 6em;
+      }
+
+      .bigTitle {
+        font-size: rem(56);
+        line-height: 1.5;
+        letter-spacing: 0.813rem;
+        color: #fff;
+        @include screen('xsMobile') {
+          letter-spacing: 0.2rem;
+        }
+      }
+      .subTitle {
+        font-size: rem(36);
+        text-transform: uppercase;
+        color: #f3f8be;
+        font-weight: bold;
+        letter-spacing: 0.25rem;
+        line-height: 1.5;
+        @include screen('xsMobile') {
+          letter-spacing: 0;
+        }
+      }
+      p {
+        margin: 0.5em 0;
+      }
+    }
+  }
+  .imgBlock {
+    position: relative;
+    width: calc(100% - 400px);
+    flex: 1 1 auto;
+    transition: 0.3s;
+    @include screen('tablet') {
+      transform: scale(0.8);
+    }
+    @include screen('mobile') {
+      transform-origin: right bottom;
+      transform: scale(0.5);
+      z-index: 1;
+      flex-basis: 100%;
+      margin-bottom: -20px;
+    }
+    @include screen('xsMobile') {
+      transform-origin: center bottom;
+      transform: scale(0.4);
+    }
+    > img {
+      position: absolute;
+      @include screen('mobile') {
+        //width: 50%;
+      }
+    }
+    .woman02 {
+      bottom: 0;
+      left: 90px;
+    }
+    .man02 {
+      bottom: -60px;
+      left: 280px;
+      z-index: 1;
+    }
+    .woman03 {
+      bottom: 20px;
+      left: 480px;
+    }
+    @media screen and (max-width: $containerMax) {
+      .woman02 {
+        left: 0;
+      }
+      .man02 {
+        left: 190px;
+      }
+      .woman03 {
+        left: 390px;
+      }
+    }
+  }
+  .linksGrp {
+    .mainTitle {
+      text-align: center;
+      img {
+        width: 250px;
+      }
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 3em 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+    li {
+      //flex-basis: 20%;
+      flex-basis: 150px;
+      max-width: 50%;
+
+      a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: rem(18);
+        color: $colorWord;
+        font-weight: 500;
+        transition: 0.2s ease-in;
+        padding: 1em 0.5em;
+        border-radius: 10px;
+        background-color: #fff;
+        img {
+          width: 80px;
+          max-width: 100%;
+          max-height: 80px;
+          margin-bottom: 1em;
+        }
+        &:hover {
+          transform: translateY(-2px);
+          color: $aHover;
+          box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.2);
+        }
+      }
+    }
+    & + .relatedEvents {
+      padding-top: 2em;
+      background: url(../images/borderdots.png) repeat-x top left;
+      background-size: 120px;
+    }
+  }
+  .relatedEvents {
+    .mainTitle {
+      text-align: center;
+      img {
+        width: 130px;
+      }
+    }
+    .formGrp {
+      justify-content: center;
+      font-size: rem(18);
+      color: #5d5d5d;
+      margin: 2.5em 0;
+    }
+
+    .formContent {
+      margin: 0.5em 1em;
+      color: #272011;
+      justify-content: center;
+      @include screen('xsMobile') {
+        margin: 0.5em 0;
+        width: 100%;
+      }
+      // input[type='radio'] {
+      //   position: absolute;
+      //   & + label {
+      //     display: block;
+      //     padding: 0.35em 1.2em;
+      //     cursor: pointer;
+      //     border: 3px solid #272011;
+      //     margin-right: -1px;
+
+      //     background-color: #fff;
+      //   }
+      //   &:checked + label {
+      //     background-color: #272011;
+      //     color: #fff;
+      //   }
+      // }
+      label {
+        display: block;
+        padding: 0.45em 1.3em;
+        cursor: pointer;
+        margin-right: -3px;
+        background-color: #fff;
+        position: relative;
+        //transform: perspective(1px) translateZ(0);
+        > span {
+          position: relative;
+          z-index: 1;
+        }
+      }
+      input[type='radio'] {
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin: 0;
+        display: block;
+        border-radius: 0;
+        border: 3px solid #272011;
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
+        &:checked,
+        &:focus {
+          background-color: #272011;
+          box-shadow: none;
+          //border: none;
+          & + span {
+            color: #fff;
+          }
+        }
+        &:focus-visible {
+          outline: 2px solid $formFocus;
+        }
+      }
+      select {
+        margin-left: 1em;
+        padding: 0.4em 2.2em 0.4em 1.2em;
+        min-width: 125px;
+        border-radius: 0;
+        border-width: 0 0 2px 0;
+        border-color: #272011;
+
+        appearance: none;
+        background: url(../images/icon/icon_arrow_down_dark.svg) no-repeat right 0.4em top 50%;
+        background-size: 0.95rem;
+      }
+    }
+  }
+  & + .main {
+    background-position: right -100px top 230px, left -30px top 95px;
+    .imgBlock {
+      .woman01 {
+        top: 10px;
+        z-index: 1;
+      }
+      .man01 {
+        top: 15px;
+      }
+      .spots {
+        top: 0;
+        opacity: 0.7;
+      }
+      .round01 {
+        top: 220px;
+      }
+    }
+    .webSearch {
+      padding: 100px 0;
+    }
+  }
+}
