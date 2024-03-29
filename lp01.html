@@ -110,53 +110,54 @@
             </div>
           </section>
           <!-- Search End -->
-          <section class="lp">
-            <div class="container contentBox" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
-              <nav aria-label="Breadcrumb" class="breadcrumb">
+
+          <div class="container contentBox" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
+            <nav aria-label="Breadcrumb" class="breadcrumb">
+              <ul>
+                <li><a href="#">首頁</a></li>
+                <li><a href="#">檔案月專區</a></li>
+                <li aria-current="page">最新消息</li>
+              </ul>
+            </nav>
+            <div class="functionPanel">
+              <!-- function功能區塊 -->
+              <div class="function">
                 <ul>
-                  <li><a href="#">首頁</a></li>
-                  <li><a href="#">檔案月專區</a></li>
-                  <li aria-current="page">最新消息</li>
+                  <li class="print"><a href="#">友善列印</a></li>
+                  <li class="back"><a href="javascript:history.back()">回上一頁</a></li>
                 </ul>
-              </nav>
-              <div class="functionPanel">
-                <!-- function功能區塊 -->
-                <div class="function">
-                  <ul>
-                    <li class="print"><a href="#">友善列印</a></li>
-                    <li class="back"><a href="javascript:history.back()">回上一頁</a></li>
-                  </ul>
-                </div>
-                <!-- 社群分享 -->
-                <div class="share">
-                  <ul>
-                    <li>
-                      <a href="#"><img src="images/basic/icon_facebook.svg" alt="facebook" /></a>
-                    </li>
-                    <li>
-                      <a href="#"><img src="images/basic/icon_twitter.svg" alt="twitter" /></a>
-                    </li>
-                    <li>
-                      <a href="#"><img src="images/basic/icon_line.svg" alt="line" /></a>
-                    </li>
-                    <li>
-                      <a href="#"><img src="images/basic/icon_youtube.svg" alt="youtube" /></a>
-                    </li>
-                    <li>
-                      <a href="#"><img src="images/basic/icon_instagram.svg" alt="instagram" /></a>
-                    </li>
-                    <li>
-                      <a href="#"><img src="images/basic/icon_linkedin.svg" alt="LinkedIn" /></a>
-                    </li>
-                    <li>
-                      <a href="#"><img src="images/basic/icon_rss.svg" alt="RSS" /></a>
-                    </li>
-                    <li>
-                      <a href="#"><img src="images/basic/icon_plurk.svg" alt="Plurk" /></a>
-                    </li>
-                  </ul>
-                </div>
               </div>
+              <!-- 社群分享 -->
+              <div class="share">
+                <ul>
+                  <li>
+                    <a href="#"><img src="images/basic/icon_facebook.svg" alt="facebook" /></a>
+                  </li>
+                  <li>
+                    <a href="#"><img src="images/basic/icon_twitter.svg" alt="twitter" /></a>
+                  </li>
+                  <li>
+                    <a href="#"><img src="images/basic/icon_line.svg" alt="line" /></a>
+                  </li>
+                  <li>
+                    <a href="#"><img src="images/basic/icon_youtube.svg" alt="youtube" /></a>
+                  </li>
+                  <li>
+                    <a href="#"><img src="images/basic/icon_instagram.svg" alt="instagram" /></a>
+                  </li>
+                  <li>
+                    <a href="#"><img src="images/basic/icon_linkedin.svg" alt="LinkedIn" /></a>
+                  </li>
+                  <li>
+                    <a href="#"><img src="images/basic/icon_rss.svg" alt="RSS" /></a>
+                  </li>
+                  <li>
+                    <a href="#"><img src="images/basic/icon_plurk.svg" alt="Plurk" /></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <section class="lp">
               <h2 class="title">最新消息</h2>
               <!-- 查詢條件表單 -->
               <h3><i class="i_search"></i>顯示查詢條件</h3>
@@ -269,27 +270,28 @@
                   </li>
                 </ul>
               </div>
-              <!-- Pagination -->
-              <div class="pagination">
-                <div class="formInline">
-                  <div class="total">共<span>22</span>筆資料，第<span>1/2</span>頁，</div>
-                  <div class="items">每頁顯示 <a href="#" class="active">20</a> <a href="#">40</a> <a href="#">60</a> 筆</div>
-                </div>
-                <ul class="page">
-                  <li class="first"><a href="#" title="第一頁">第一頁</a></li>
-                  <li class="prev"><a href="#" title="回上一頁">回上一頁 </a></li>
-                  <li class="active"><a href="#">01</a></li>
-                  <!-- 可以選擇在叫小尺寸時選擇隱藏部分按鈕 -->
-                  <li><a href="#">02</a></li>
-                  <li class="next"><a href="#" title="下一頁">下一頁</a></li>
-                  <li class="last"><a href="#" title="最後一頁">最後一頁</a></li>
-                </ul>
+            </section>
+            <!-- Pagination -->
+            <div class="pagination">
+              <div class="formInline">
+                <div class="total">共<span>22</span>筆資料，第<span>1/2</span>頁，</div>
+                <div class="items">每頁顯示 <a href="#" class="active">20</a> <a href="#">40</a> <a href="#">60</a> 筆</div>
               </div>
-              <!-- Pagination End -->
-              <!-- 無資料狀態 -->
-              <div class="noData notice">目前的查詢沒有資料。</div>
+              <ul class="page">
+                <li class="first"><a href="#" title="第一頁">第一頁</a></li>
+                <li class="prev"><a href="#" title="回上一頁">回上一頁 </a></li>
+                <li class="active"><a href="#">01</a></li>
+                <!-- 可以選擇在叫小尺寸時選擇隱藏部分按鈕 -->
+                <li><a href="#">02</a></li>
+                <li class="next"><a href="#" title="下一頁">下一頁</a></li>
+                <li class="last"><a href="#" title="最後一頁">最後一頁</a></li>
+              </ul>
             </div>
-          </section>
+            <!-- Pagination End -->
+
+            <!-- 無資料狀態 -->
+            <div class="noData notice">目前的查詢沒有資料。</div>
+          </div>
         </div>
       </main>
       <!-- footer Start-->

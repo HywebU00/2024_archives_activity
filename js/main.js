@@ -2221,3 +2221,9 @@ if (document.querySelector('[data-fancybox="gallery"]')) {
     l10n: Fancybox.l10n.zh_TW,
   });
 }
+
+if (document.querySelector('[data-fancybox="images"]')) {
+  Fancybox.bind('[data-fancybox="images"]', {
+    l10n: Fancybox.l10n.zh_TW,
+  });
+}

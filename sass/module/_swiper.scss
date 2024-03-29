@@ -40,9 +40,6 @@
     object-fit: cover;
   }
 }
-.cpSlider {
-  padding: 1em 0;
-}
 .swiperBox {
   position: relative;
 }
@@ -241,31 +238,47 @@
   }
 }
 
-.cpSlider .swiper {
-  margin: 0 40px;
-  background: #fff;
-  overflow: hidden;
-
-  h3 {
-    font-size: 1.5em;
-    padding: 12px 0px 15px 0px;
-    margin: 0.5em 0px 1.2em;
-    border-bottom: 1px solid $colorPrimary;
+.cpSlider {
+  .swiper {
+    //margin: 0 40px;
+    background: #fff;
+    overflow: hidden;
   }
+  .swiperArrow {
+    &::before {
+      mask: url('../vendor/swiper/ar.svg') center no-repeat;
+      background: #a6a1a1;
+    }
+    &.prevSlider {
+      left: -40px;
+    }
+    &.nextSlider {
+      right: -40px;
+    }
+  }
+
+  // h3 {
+  //   font-size: 1.5em;
+  //   padding: 12px 0px 15px 0px;
+  //   margin: 0.5em 0px 1.2em;
+  //   border-bottom: 1px solid $colorPrimary;
+  // }
   .imgContainer {
     @include aspectRatio(4, 3);
     overflow: hidden;
   }
   .caption {
-    padding: 0.5em;
+    padding: 2em 0.85em 0.5em;
     position: absolute;
-    background: rgba(0, 0, 0, 0.75);
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.9) 10%, rgba(0, 0, 0, 0) 100%);
+    //background: rgba(0, 0, 0, 0.5);
     color: #fff;
-    bottom: -2em;
+    //bottom: auto;
+    //top: 100%;
+    bottom: 0;
+    transform: translateY(100%);
     left: 0;
-    font-size: 0.938em;
-    height: 2em;
-    line-height: 1;
+    font-size: 1rem;
     width: 100%;
     @include textOverflow;
     transition: 0.3s ease-out;
@@ -276,7 +289,8 @@
     &:hover,
     &:focus-visible {
       .caption {
-        bottom: 0;
+        transform: translateY(0);
+        //top: 0;
       }
     }
   }
