@@ -7407,29 +7407,33 @@ h2.title {
   transform: rotate(-45deg) translateY(-50%);
   box-shadow: 0 -10px 0 0 #67a1a5, -10px 0px 0 0 #67a1a5;
 }
-.cp .pic {
-  float: left;
-  margin: 0px 1.5em 1em 0;
-  width: auto;
-  width: 45%;
-  max-width: 400px;
+.cp h4.title {
+  font-size: 1em;
+  color: #3e8287;
+  font-weight: bold;
+  margin: 0.5em 0 0.25em 0;
+}
+.cp .pic,
+.cp .picCenter {
   background: #f1f1f1;
   overflow: hidden;
   padding: 0.5em 0.5em 0.2em;
 }
-.cp .pic img {
-  float: none;
-  width: 100%;
+.cp .pic img,
+.cp .picCenter img {
   margin: 0;
   display: block;
+  width: 100%;
 }
-.cp .pic span {
+.cp .pic span,
+.cp .picCenter span {
   text-align: center;
   display: block;
   font-size: 0.938em;
 }
 @media screen and (max-width: 767px) {
-  .cp .pic {
+  .cp .pic,
+  .cp .picCenter {
     float: none;
     max-width: 100%;
     width: auto;
@@ -7437,6 +7441,33 @@ h2.title {
     display: block;
     margin-bottom: 0.5em;
   }
+}
+.cp .videoContainer {
+  margin: 0 auto;
+  width: 600px;
+  max-width: 100%;
+}
+.cp .videoContainer iframe {
+  width: 100%;
+  aspect-ratio: 16/9;
+}
+.cp .pic {
+  float: left;
+  margin: 0px 1.5em 1em 0;
+  width: auto;
+  width: 45%;
+  max-width: 400px;
+}
+.cp .pic img {
+  float: none;
+}
+.cp .picCenter {
+  margin: 0 auto 1em;
+  width: 600px;
+  max-width: 100%;
+}
+.cp .picCenter img {
+  margin: 0 auto;
 }
 .cp table {
   background: #fff;
@@ -7470,6 +7501,7 @@ h2.title {
 .cp a {
   text-decoration: none;
   color: #116c72;
+  text-decoration: underline;
 }
 .cp a:hover, .cp a:focus-visible {
   color: #0f6167;
@@ -7856,6 +7888,38 @@ h2.title {
 }
 .imgGallery .imgContainer a:hover .caption, .imgGallery .imgContainer a:focus-visible .caption {
   transform: translateY(0);
+}
+
+.mapContent {
+  display: flex;
+  padding: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  background-color: #fff;
+}
+.mapContent iframe {
+  width: 100%;
+  height: 450px;
+}
+
+.moreDetail {
+  display: flex;
+  flex-wrap: wrap;
+}
+.moreDetail .toggleDetailBtn {
+  margin: 2em auto 0;
+  background-color: #116c72;
+  color: #fff;
+}
+.moreDetail .detailContent {
+  width: 100%;
+  display: none;
+  transition: 0.5s ease-out;
+  transform-origin: top center;
+  height: 0;
+}
+.moreDetail .detailContent.active {
+  display: block;
+  height: 100%;
 }
 
 .colorA a:hover {

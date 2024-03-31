@@ -232,5 +232,24 @@ window.addEventListener('load', () => {
     }
   });
 
+  var toggleButtons = document.querySelectorAll('.toggleDetailBtn');
+
+  toggleButtons.forEach(function (button) {
+    button.addEventListener('click', function () {
+      var detailContent = this.nextElementSibling;
+      var toggleState = this.querySelector('.toggleState');
+
+      if (detailContent.classList.contains('active')) {
+        // 收起
+        detailContent.classList.remove('active');
+        toggleState.textContent = '展開';
+      } else {
+        // 展开
+        detailContent.classList.add('active');
+        toggleState.textContent = '收合';
+      }
+    });
+  });
+
   AOS.init();
 })();

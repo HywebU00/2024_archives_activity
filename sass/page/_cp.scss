@@ -31,20 +31,22 @@ h2.title {
       box-shadow: 0 -10px 0 0 #67a1a5, -10px 0px 0 0 #67a1a5;
     }
   }
-  .pic {
-    float: left;
-    margin: 0px 1.5em 1em 0;
-    width: auto;
-    width: 45%;
-    max-width: 400px;
+  h4.title {
+    font-size: 1em;
+    color: #3e8287;
+    font-weight: bold;
+    margin: 0.5em 0 0.25em 0;
+  }
+
+  .pic,
+  .picCenter {
     background: #f1f1f1;
     overflow: hidden;
     padding: 0.5em 0.5em 0.2em;
     img {
-      float: none;
-      width: 100%;
       margin: 0;
       display: block;
+      width: 100%;
     }
     span {
       text-align: center;
@@ -60,6 +62,37 @@ h2.title {
       margin-bottom: 0.5em;
     }
   }
+  .videoContainer {
+    margin: 0 auto;
+    width: 600px;
+    max-width: 100%;
+    iframe {
+      width: 100%;
+      aspect-ratio: 16/9;
+    }
+  }
+
+  .pic {
+    float: left;
+    margin: 0px 1.5em 1em 0;
+    width: auto;
+    width: 45%;
+    max-width: 400px;
+
+    img {
+      float: none;
+    }
+  }
+
+  .picCenter {
+    margin: 0 auto 1em;
+    width: 600px;
+    max-width: 100%;
+    img {
+      margin: 0 auto;
+    }
+  }
+
   table {
     background: #fff;
   }
@@ -89,6 +122,7 @@ h2.title {
   }
   a {
     @include aSetting;
+    text-decoration: underline;
   }
   .publishInfo {
     font-size: 0.875em;
@@ -345,6 +379,39 @@ h2.title {
           //top: 0;
         }
       }
+    }
+  }
+}
+
+.mapContent {
+  display: flex;
+  padding: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  background-color: #fff;
+  iframe {
+    width: 100%;
+    height: 450px;
+  }
+}
+
+.moreDetail {
+  display: flex;
+  flex-wrap: wrap;
+  .toggleDetailBtn {
+    margin: 2em auto 0;
+    background-color: $colorPrimary;
+    color: #fff;
+  }
+  .detailContent {
+    width: 100%;
+    display: none;
+    transition: 0.5s ease-out;
+    transform-origin: top center;
+    height: 0;
+    &.active {
+      display: block;
+      //transform: scaleY(100%);
+      height: 100%;
     }
   }
 }
