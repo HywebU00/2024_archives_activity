@@ -7254,14 +7254,14 @@ br {
 .archivesMonth .round02 {
   position: absolute;
   right: 68%;
-  top: 140px;
-  width: 655px;
+  top: 120px;
+  width: 760px;
 }
 .archivesMonth .round03 {
   position: absolute;
   left: 70%;
   bottom: -20px;
-  width: 620px;
+  width: 700px;
 }
 .archivesMonth .linksGrp .mainTitle {
   text-align: center;
