@@ -135,6 +135,18 @@ body {
   h2 {
     line-height: 1.25em;
   }
+  .round01 {
+    position: absolute;
+    top: 100px;
+    right: 56%;
+    width: 860px;
+    //height: 500px;
+    //clip-path: url(#themePath);
+    //transform: scale(0.9);
+    @include screen('xsMobile') {
+      top: 120px;
+    }
+  }
   .imgBlock {
     position: relative;
     // position: absolute;
@@ -185,18 +197,6 @@ body {
       opacity: 0.25;
       @include screen('mobile') {
         top: 0;
-      }
-    }
-    .round01 {
-      position: absolute;
-      top: 100px;
-      right: 56%;
-      width: 860px;
-      //height: 500px;
-      //clip-path: url(#themePath);
-      //transform: scale(0.9);
-      @include screen('xsMobile') {
-        top: 120px;
       }
     }
   }

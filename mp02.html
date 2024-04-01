@@ -98,19 +98,21 @@
         <div class="archivesMonth">
           <section class="mainVision">
             <div class="container">
-              <div class="caption">
+              <div class="caption" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
                 <div class="bigTitle">2023檔案月</div>
                 <div class="subTitle">archives month</div>
                 <p>第六屆檔案月正式啟動，全國各地檔案串聯活動開跑<br />邀請各機關單位、藝文場館一同參與檔案嘉年華盛會！</p>
               </div>
               <div class="imgBlock">
-                <img src="images/pic03.png" alt="" class="woman02" />
-                <img src="images/pic04.png" alt="" class="man02" />
-                <img src="images/pic05.png" alt="" class="woman03" />
+                <img src="images/pic03.png" alt="" class="woman02" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true" data-aos-delay="500" />
+                <img src="images/pic04.png" alt="" class="man02" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true" data-aos-delay="1500" />
+                <img src="images/pic05.png" alt="" class="woman03" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true" data-aos-delay="1000" />
               </div>
             </div>
           </section>
-          <div class="container contentBox">
+          <img src="images/round02.svg" alt="" class="round02" />
+          <img src="images/round03.svg" alt="" class="round03" />
+          <div class="container contentBox" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true" data-aos-delay="2000">
             <div class="linksGrp">
               <h2 class="mainTitle"><img src="images/archives_month_title.png" alt="檔案月專區" /></h2>
               <ul>
@@ -343,9 +345,8 @@
             <img src="images/spots.svg" alt="" class="spots" />
             <img src="images/pic01.png" alt="" class="man01" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="1500" data-aos-once="true" data-aos-delay="1500" />
             <img src="images/pic02.png" alt="" class="woman01" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="1500" data-aos-once="true" data-aos-delay="2000" />
-            <!-- <div class="round01"></div> -->
-            <img src="images/round01.svg" alt="" class="round01" data-aos="fade-right" data-aos-duration="1500" data-aos-once="true" data-aos-delay="3000" />
           </div>
+          <img src="images/round01.svg" alt="" class="round01" />
           <!-- Search Start -->
           <section class="webSearch" role="search" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1000">
             <div class="container">
@@ -367,6 +368,32 @@
             </div>
           </section>
           <!-- Search End -->
+          <section class="mpSlider" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1000">
+            <div class="container">
+              <div class="swiper">
+                <div class="swiper-wrapper">
+                  <div class="imgContainer swiper-slide" data-title="圖說1">
+                    <img src="images/mpbanner01.jpg" alt="" />
+                    <div class="caption">奇蹟之島—1970~1980從開發到保育臺灣建設檔案特展</div>
+                  </div>
+                  <div class="imgContainer swiper-slide" data-title="圖說2">
+                    <img src="images/demo/12.jpg" alt="" />
+                    <div class="caption">文字文字文字</div>
+                  </div>
+                  <div class="imgContainer swiper-slide" data-title="圖說2">
+                    <img src="images/demo/01.jpg" alt="" />
+                    <div class="caption">文字文字文字文字文字文字</div>
+                  </div>
+                </div>
+              </div>
+              <!--前一筆-->
+              <button class="prevSlider swiperArrow"></button>
+              <!--下一筆-->
+              <button class="nextSlider swiperArrow"></button>
+              <!-- swiper 點切換-->
+              <div class="swiperDots"></div>
+            </div>
+          </section>
           <section class="activity">
             <div class="container contentBox">
               <div class="tabSet actTab">
@@ -736,6 +763,8 @@
     <script src="vendor/swiper/swiper-bundle.min.js"></script>
     <!-- aos -->
     <script src="vendor/aos/aos.js"></script>
+    <!-- gsap -->
+    <script src="vendor/gsap.js"></script>
     <!-- main js-->
     <script src="js/main.js"></script>
     <!-- js -->

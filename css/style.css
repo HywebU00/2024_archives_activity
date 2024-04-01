@@ -6273,6 +6273,17 @@ body.noscroll {
 .main h2 {
   line-height: 1.25em;
 }
+.main .round01 {
+  position: absolute;
+  top: 100px;
+  right: 56%;
+  width: 860px;
+}
+@media screen and (max-width: 575px) {
+  .main .round01 {
+    top: 120px;
+  }
+}
 .main .imgBlock {
   position: relative;
   max-width: 100%;
@@ -6315,17 +6326,6 @@ body.noscroll {
 @media screen and (max-width: 767px) {
   .main .imgBlock .spots {
     top: 0;
-  }
-}
-.main .imgBlock .round01 {
-  position: absolute;
-  top: 100px;
-  right: 56%;
-  width: 860px;
-}
-@media screen and (max-width: 575px) {
-  .main .imgBlock .round01 {
-    top: 120px;
   }
 }
 
@@ -7142,6 +7142,9 @@ br {
   padding: 0 50px;
 }
 
+.archivesMonth {
+  position: relative;
+}
 .archivesMonth .mainVision {
   padding: 1em 0;
 }
@@ -7247,6 +7250,18 @@ br {
   .archivesMonth .imgBlock .woman03 {
     left: 390px;
   }
+}
+.archivesMonth .round02 {
+  position: absolute;
+  right: 68%;
+  top: 140px;
+  width: 655px;
+}
+.archivesMonth .round03 {
+  position: absolute;
+  left: 70%;
+  bottom: -20px;
+  width: 620px;
 }
 .archivesMonth .linksGrp .mainTitle {
   text-align: center;
@@ -7379,7 +7394,7 @@ br {
   opacity: 0.7;
 }
 .archivesMonth + .main .imgBlock .round01 {
-  top: 220px;
+  top: 200px;
 }
 .archivesMonth + .main .webSearch {
   padding: 100px 0;
@@ -7863,42 +7878,32 @@ h2.title {
   display: flex;
   flex-wrap: wrap;
   margin: 0 -15px;
+  align-items: flex-start;
 }
 .imgGallery .imgContainer {
   overflow: hidden;
-  position: relative;
-  overflow: hidden;
-  margin: 0 15px;
+  margin: 0 15px 15px;
   flex-basis: calc(50% - 30px);
+  background: #f1f1f1;
+  padding: 0.5em;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
 }
-.imgGallery .imgContainer img {
-  width: 100%;
-  aspect-ratio: 4/3;
-  display: block;
-  -o-object-fit: contain;
-     object-fit: contain;
-  -o-object-position: 50% 50%;
-     object-position: 50% 50%;
+@media screen and (max-width: 767px) {
+  .imgGallery .imgContainer {
+    flex-basis: 100%;
+  }
 }
 .imgGallery .imgContainer .caption {
-  padding: 2em 0.85em 0.5em;
-  position: absolute;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.9) 10%, rgba(0, 0, 0, 0) 100%);
-  color: #fff;
-  bottom: 0;
-  left: 0;
+  padding: 0.5em 0;
+  color: #3a3a3a;
   font-size: 1rem;
   width: 100%;
-  transition: 0.3s ease-out;
 }
 .imgGallery .imgContainer a {
   color: #555;
   display: block;
+  text-decoration: none;
 }
-.imgGallery .imgContainer a:hover .caption, .imgGallery .imgContainer a:focus-visible .caption {
-  transform: translateY(0);
-}
-
 .mapContent {
   display: flex;
   padding: 10px;
