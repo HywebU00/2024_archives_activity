@@ -108,12 +108,15 @@
 }
 .btnSearch {
   // @extend %btn;
-  @include btnSetting(#efefd0, #085055);
+  background-color: #efefd0;
+  border: solid 1px #efefd0;
+  color: #085055;
   height: 42px;
   &:hover,
   &:focus-visible {
+    color: #fff;
     background: $aHover;
-    border: solid 1px $aHover;
+    border-color: $aHover;
   }
 }
 // 主要按鈕

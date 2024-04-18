@@ -341,7 +341,7 @@ a:focus-visible {
   top: 5px;
   left: 5px;
   z-index: 9;
-  color: #3a3a3a;
+  color: #116c72;
   font-size: 1em;
 }
 @media screen and (max-width: 767px) {
@@ -1416,33 +1416,15 @@ kbd kbd {
 }
 
 .btnSearch {
-  background: #efefd0;
-  border: 2px solid #67a1a5;
-  color: #116c72;
-  border-radius: 2em;
+  background-color: #efefd0;
+  border: solid 1px #efefd0;
+  color: #085055;
   height: 42px;
 }
-.btnSearch:hover {
-  background: #e2e2aa;
-  cursor: pointer;
-  color: #fff;
-  outline: none;
-}
-.btnSearch:focus-visible {
-  background: #e2e2aa;
-  border: 1px solid #d5d584;
-  cursor: pointer;
-  color: #fff;
-  outline: none;
-  box-shadow: 0 0px 0px 2px #ef5714;
-}
-.btnSearch.active {
-  background: #f5f5e3;
-  cursor: pointer;
-}
 .btnSearch:hover, .btnSearch:focus-visible {
+  color: #fff;
   background: #0f6167;
-  border: solid 1px #0f6167;
+  border-color: #0f6167;
 }
 
 .btnPrimary {
@@ -4414,7 +4396,7 @@ select:-moz-focusring {
 input[type=checkbox],
 input[type=radio] {
   font-size: 1em;
-  margin: 0.3em;
+  margin: 0 0.3em 0.3em;
   width: 1em;
   height: 1em;
   background-color: #f7f6ee;
@@ -4426,12 +4408,9 @@ input[type=radio] {
 }
 
 input[type=checkbox]:checked,
-input[type=checkbox]:focus,
-input[type=radio]:checked,
-input[type=radio]:focus {
+input[type=checkbox]:focus {
   border-color: #ef5714;
   background-color: #ef5714;
-  outline: none;
 }
 
 input[type=checkbox]:checked {
@@ -4443,10 +4422,12 @@ input[type=checkbox]:checked {
   border-radius: 2px;
 }
 
-input[type=radio]:focus {
+input[type=radio]:focus,
+input[type=radio]:checked {
   border-color: #ef5714;
   background-color: #ef5714;
   box-shadow: #fff 0 0 0 3px inset, #ef5714 0 0 0 2px;
+  outline: none;
 }
 
 input[type=checkbox]:focus {
@@ -5652,7 +5633,7 @@ div.function ul li.icon_forward a:before {
   margin: 0px 0.5em;
 }
 .pagination .page {
-  margin: 10px auto;
+  margin: 5px auto;
   padding: 0;
   display: flex;
   justify-content: center;
@@ -7315,36 +7296,44 @@ br {
 .archivesMonth .relatedEvents .mainTitle img {
   width: 130px;
 }
-.archivesMonth .relatedEvents .formGrp {
+.archivesMonth .relatedEvents .flexForm {
   justify-content: center;
   font-size: 1.125rem;
   color: #5d5d5d;
   margin: 2.5em 0;
 }
-.archivesMonth .relatedEvents .formContent {
+.archivesMonth .relatedEvents .formGrp {
   margin: 0.5em 1em;
   color: #272011;
   justify-content: center;
 }
 @media screen and (max-width: 575px) {
-  .archivesMonth .relatedEvents .formContent {
+  .archivesMonth .relatedEvents .formGrp {
     margin: 0.5em 0;
     width: 100%;
   }
 }
-.archivesMonth .relatedEvents .formContent label {
+.archivesMonth .relatedEvents .formGrp + .formGrp {
+  margin-left: 0;
+}
+.archivesMonth .relatedEvents .formGrp label {
+  margin: 0;
+}
+.archivesMonth .relatedEvents .formGrp .tabStyle {
   display: block;
   padding: 0.45em 1.3em;
   cursor: pointer;
-  margin-right: -3px;
   background-color: #fff;
   position: relative;
 }
-.archivesMonth .relatedEvents .formContent label > span {
+.archivesMonth .relatedEvents .formGrp .tabStyle > span {
   position: relative;
   z-index: 1;
 }
-.archivesMonth .relatedEvents .formContent input[type=radio] {
+.archivesMonth .relatedEvents .formGrp .tabStyle + .tabStyle {
+  margin-left: -3px;
+}
+.archivesMonth .relatedEvents .formGrp .tabStyle input[type=radio] {
   position: absolute;
   top: 0;
   left: 0;
@@ -7356,20 +7345,19 @@ br {
   height: 100%;
   background-color: #fff;
 }
-.archivesMonth .relatedEvents .formContent input[type=radio]:checked, .archivesMonth .relatedEvents .formContent input[type=radio]:focus {
+.archivesMonth .relatedEvents .formGrp .tabStyle input[type=radio]:checked, .archivesMonth .relatedEvents .formGrp .tabStyle input[type=radio]:focus {
   background-color: #272011;
   box-shadow: none;
 }
-.archivesMonth .relatedEvents .formContent input[type=radio]:checked + span, .archivesMonth .relatedEvents .formContent input[type=radio]:focus + span {
+.archivesMonth .relatedEvents .formGrp .tabStyle input[type=radio]:checked + span, .archivesMonth .relatedEvents .formGrp .tabStyle input[type=radio]:focus + span {
   color: #fff;
 }
-.archivesMonth .relatedEvents .formContent input[type=radio]:focus-visible {
+.archivesMonth .relatedEvents .formGrp .tabStyle input[type=radio]:focus-visible {
   outline: 2px solid #ef5714;
 }
-.archivesMonth .relatedEvents .formContent select {
-  margin-left: 1em;
-  padding: 0.4em 2.2em 0.4em 1.2em;
-  min-width: 125px;
+.archivesMonth .relatedEvents .formGrp select {
+  padding: 0.4em 2em 0.4em 1em;
+  min-width: 120px;
   border-radius: 0;
   border-width: 0 0 2px 0;
   border-color: #272011;
@@ -7398,6 +7386,154 @@ br {
 }
 .archivesMonth + .main .webSearch {
   padding: 100px 0;
+}
+
+.mapSelect {
+  display: flex;
+  margin-top: 2em;
+}
+.mapSelect .leftBlock {
+  flex-basis: 40%;
+}
+.mapSelect .rightBlock {
+  flex-basis: 60%;
+}
+.mapSelect .locationText {
+  text-align: center;
+  font-size: 1.125rem;
+  margin-bottom: 1em;
+}
+.mapSelect .eventList {
+  margin: 0 1em 1em;
+}
+.mapSelect .eventList ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.mapSelect .eventList li {
+  flex-basis: 48%;
+  padding: 0.25em 0;
+  border-bottom: 1px dashed #ccc;
+}
+.mapSelect .eventList li a {
+  display: block;
+  padding: 0.25em 0;
+  color: #3a3a3a;
+}
+.mapSelect .eventList li a:hover {
+  color: #116c72;
+}
+.mapSelect .eventList li .title {
+  font-size: 1.125rem;
+  margin-bottom: 0.5em;
+  font-weight: 600;
+}
+.mapSelect .eventList li .badge {
+  display: inline-block;
+  color: #fff;
+  font-size: 0.8125rem;
+  background-color: #116c72;
+  border-radius: 1em;
+  padding: 0 0.8em;
+  font-weight: normal;
+  line-height: 1.5;
+  margin: 0 5px;
+}
+.mapSelect .eventList li p {
+  margin: 0;
+  font-size: 0.875rem;
+}
+.mapSelect .eventList.activity li a {
+  display: flex;
+}
+.mapSelect .eventList.activity li a .picBox {
+  max-width: 15%;
+}
+
+.mapCity {
+  display: none;
+}
+
+.mapCity svg path,
+.mapArea svg path {
+  stroke: #ffffff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  box-shadow: none;
+}
+.mapCity svg text,
+.mapArea svg text {
+  color: #000;
+  text-shadow: 0 0 0.2em #ffffff, 0 0 0.2em #ffffff, 0 0 0.2em #ffffff;
+}
+.mapCity svg a:focus,
+.mapCity svg a:focus-visible,
+.mapArea svg a:focus,
+.mapArea svg a:focus-visible {
+  outline: none;
+}
+.mapCity .st0,
+.mapArea .st0 {
+  fill: #a299ca;
+}
+.mapCity .st1,
+.mapArea .st1 {
+  fill: #e29e93;
+}
+.mapCity .st2,
+.mapArea .st2 {
+  fill: #edbc7a;
+}
+.mapCity .st3,
+.mapArea .st3 {
+  fill: #89c681;
+}
+.mapCity .st4,
+.mapArea .st4 {
+  fill: #84c0e9;
+}
+.mapCity a:hover .st0, .mapCity a:focus .st0, .mapCity a.active .st0,
+.mapArea a:hover .st0,
+.mapArea a:focus .st0,
+.mapArea a.active .st0 {
+  fill: #7263b6;
+}
+.mapCity a:hover .st1, .mapCity a:focus .st1, .mapCity a.active .st1,
+.mapArea a:hover .st1,
+.mapArea a:focus .st1,
+.mapArea a.active .st1 {
+  fill: #c74c2d;
+}
+.mapCity a:hover .st2, .mapCity a:focus .st2, .mapCity a.active .st2,
+.mapArea a:hover .st2,
+.mapArea a:focus .st2,
+.mapArea a.active .st2 {
+  fill: #e37524;
+}
+.mapCity a:hover .st3, .mapCity a:focus .st3, .mapCity a.active .st3,
+.mapArea a:hover .st3,
+.mapArea a:focus .st3,
+.mapArea a.active .st3 {
+  fill: #3b8731;
+}
+.mapCity a:hover .st4, .mapCity a:focus .st4, .mapCity a.active .st4,
+.mapArea a:hover .st4,
+.mapArea a:focus .st4,
+.mapArea a.active .st4 {
+  fill: #2e7cb0;
+}
+.mapCity .st5,
+.mapArea .st5 {
+  font-size: 2rem;
+}
+.mapCity .st6,
+.mapArea .st6 {
+  font-size: 1.5rem;
 }
 
 h1.title,

@@ -14,7 +14,7 @@ a:focus-visible {
   top: 5px;
   left: 5px;
   z-index: 9;
-  color: $colorWord;
+  color: $colorPrimary;
   font-size: $fontSize;
   @include screen('mobile') {
     display: none;

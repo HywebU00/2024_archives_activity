@@ -251,5 +251,21 @@ window.addEventListener('load', () => {
     });
   });
 
+  const cityRadio = document.querySelector('.cityRadio');
+  const areaRadio = document.querySelector('.areaRadio');
+  const mapCity = document.querySelector('.mapCity');
+  const mapArea = document.querySelector('.mapArea');
+
+  // Add event listeners to radio buttons
+  cityRadio.addEventListener('click', function () {
+    mapCity.style.display = 'block';
+    mapArea.style.display = 'none';
+  });
+
+  areaRadio.addEventListener('click', function () {
+    mapCity.style.display = 'none';
+    mapArea.style.display = 'block';
+  });
+
   AOS.init();
 })();
