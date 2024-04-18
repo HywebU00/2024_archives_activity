@@ -256,16 +256,20 @@ window.addEventListener('load', () => {
   const mapCity = document.querySelector('.mapCity');
   const mapArea = document.querySelector('.mapArea');
 
-  // Add event listeners to radio buttons
-  cityRadio.addEventListener('click', function () {
-    mapCity.style.display = 'block';
-    mapArea.style.display = 'none';
-  });
+  if (cityRadio && areaRadio && mapCity && mapArea) {
+    // Add event listeners
+    cityRadio.addEventListener('click', function () {
+      mapCity.style.display = 'block';
+      mapArea.style.display = 'none';
+    });
 
-  areaRadio.addEventListener('click', function () {
-    mapCity.style.display = 'none';
-    mapArea.style.display = 'block';
-  });
+    areaRadio.addEventListener('click', function () {
+      mapCity.style.display = 'none';
+      mapArea.style.display = 'block';
+    });
+  }
+
+  //const
 
   AOS.init();
 })();
