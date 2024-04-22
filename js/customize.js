@@ -240,36 +240,83 @@ window.addEventListener('load', () => {
       var toggleState = this.querySelector('.toggleState');
 
       if (detailContent.classList.contains('active')) {
-        // 收起
         detailContent.classList.remove('active');
         toggleState.textContent = '展開';
       } else {
-        // 展开
         detailContent.classList.add('active');
         toggleState.textContent = '收合';
       }
     });
   });
 
-  const cityRadio = document.querySelector('.cityRadio');
-  const areaRadio = document.querySelector('.areaRadio');
-  const mapCity = document.querySelector('.mapCity');
-  const mapArea = document.querySelector('.mapArea');
+  document.addEventListener('DOMContentLoaded', function () {
+    const cityRadio = document.querySelector('.cityRadio');
+    const areaRadio = document.querySelector('.areaRadio');
+    const mapCity = document.querySelector('.mapCity');
+    const mapArea = document.querySelector('.mapArea');
 
-  if (cityRadio && areaRadio && mapCity && mapArea) {
-    // Add event listeners
-    cityRadio.addEventListener('click', function () {
-      mapCity.style.display = 'block';
-      mapArea.style.display = 'none';
-    });
+    // Check if elements exist
+    if (cityRadio && areaRadio && mapCity && mapArea) {
+      // Elements exist
+      console.log('All elements found.');
 
-    areaRadio.addEventListener('click', function () {
-      mapCity.style.display = 'none';
-      mapArea.style.display = 'block';
+      // Add event listeners
+      cityRadio.addEventListener('click', function () {
+        mapCity.style.display = 'block';
+        mapArea.style.display = 'none';
+      });
+
+      areaRadio.addEventListener('click', function () {
+        mapCity.style.display = 'none';
+        mapArea.style.display = 'block';
+      });
+    } else {
+      // Elements do not exist
+      console.log('Some elements are missing.');
+    }
+  });
+
+  const mapAreaPaths = document.querySelectorAll('.mapArea path');
+  const mapCityPaths = document.querySelectorAll('.mapCity path');
+
+  function activatePath(path) {
+    path.classList.add('active');
+  }
+
+  function deactivatePath(path) {
+    path.classList.remove('active');
+  }
+
+  function activateAreaPaths(clickedPath) {
+    mapAreaPaths.forEach((path) => {
+      if (path === clickedPath || path.parentNode === clickedPath.parentNode) {
+        activatePath(path);
+      } else {
+        deactivatePath(path);
+      }
     });
   }
 
-  //const
+  function activateCityPath(clickedPath) {
+    mapCityPaths.forEach((path) => {
+      if (path === clickedPath) {
+        activatePath(path);
+      } else {
+        deactivatePath(path);
+      }
+    });
+  }
 
+  mapAreaPaths.forEach((path) => {
+    path.addEventListener('click', function () {
+      activateAreaPaths(this);
+    });
+  });
+
+  mapCityPaths.forEach((path) => {
+    path.addEventListener('click', function () {
+      activateCityPath(this);
+    });
+  });
   AOS.init();
 })();

@@ -404,7 +404,6 @@
   }
   a {
     &:hover,
-    &:focus,
     &.active {
       .st0 {
         fill: #7263b6;
@@ -421,6 +420,21 @@
       .st4 {
         fill: #2e7cb0;
       }
+    }
+    .st0.active {
+      fill: #7263b6;
+    }
+    .st1.active {
+      fill: #c74c2d;
+    }
+    .st2.active {
+      fill: #e37524;
+    }
+    .st3.active {
+      fill: #3b8731;
+    }
+    .st4.active {
+      fill: #2e7cb0;
     }
   }
 

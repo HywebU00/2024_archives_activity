@@ -7497,34 +7497,49 @@ br {
 .mapArea .st4 {
   fill: #84c0e9;
 }
-.mapCity a:hover .st0, .mapCity a:focus .st0, .mapCity a.active .st0,
+.mapCity a:hover .st0, .mapCity a.active .st0,
 .mapArea a:hover .st0,
-.mapArea a:focus .st0,
 .mapArea a.active .st0 {
   fill: #7263b6;
 }
-.mapCity a:hover .st1, .mapCity a:focus .st1, .mapCity a.active .st1,
+.mapCity a:hover .st1, .mapCity a.active .st1,
 .mapArea a:hover .st1,
-.mapArea a:focus .st1,
 .mapArea a.active .st1 {
   fill: #c74c2d;
 }
-.mapCity a:hover .st2, .mapCity a:focus .st2, .mapCity a.active .st2,
+.mapCity a:hover .st2, .mapCity a.active .st2,
 .mapArea a:hover .st2,
-.mapArea a:focus .st2,
 .mapArea a.active .st2 {
   fill: #e37524;
 }
-.mapCity a:hover .st3, .mapCity a:focus .st3, .mapCity a.active .st3,
+.mapCity a:hover .st3, .mapCity a.active .st3,
 .mapArea a:hover .st3,
-.mapArea a:focus .st3,
 .mapArea a.active .st3 {
   fill: #3b8731;
 }
-.mapCity a:hover .st4, .mapCity a:focus .st4, .mapCity a.active .st4,
+.mapCity a:hover .st4, .mapCity a.active .st4,
 .mapArea a:hover .st4,
-.mapArea a:focus .st4,
 .mapArea a.active .st4 {
+  fill: #2e7cb0;
+}
+.mapCity a .st0.active,
+.mapArea a .st0.active {
+  fill: #7263b6;
+}
+.mapCity a .st1.active,
+.mapArea a .st1.active {
+  fill: #c74c2d;
+}
+.mapCity a .st2.active,
+.mapArea a .st2.active {
+  fill: #e37524;
+}
+.mapCity a .st3.active,
+.mapArea a .st3.active {
+  fill: #3b8731;
+}
+.mapCity a .st4.active,
+.mapArea a .st4.active {
   fill: #2e7cb0;
 }
 .mapCity .st5,
