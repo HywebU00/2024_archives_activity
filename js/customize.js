@@ -214,15 +214,15 @@ window.addEventListener('load', () => {
     },
   });
 
-  window.addEventListener('scroll', function () {
-    var contentBoxes = document.querySelectorAll('.contentBox');
-    contentBoxes.forEach(function (box) {
-      var boxPosition = box.getBoundingClientRect();
-      if (boxPosition.top < window.innerHeight) {
-        box.classList.add('effect');
-      }
-    });
-  });
+  // window.addEventListener('scroll', function () {
+  //   var contentBoxes = document.querySelectorAll('.contentBox');
+  //   contentBoxes.forEach(function (box) {
+  //     var boxPosition = box.getBoundingClientRect();
+  //     if (boxPosition.top < window.innerHeight) {
+  //       box.classList.add('effect');
+  //     }
+  //   });
+  // });
 
   document.addEventListener('DOMContentLoaded', function () {
     var archivesMonth = document.querySelector('.archivesMonth');
@@ -318,5 +318,77 @@ window.addEventListener('load', () => {
       activateCityPath(this);
     });
   });
+
+  document.addEventListener('DOMContentLoaded', function () {
+    var areaSelect = document.querySelector('.areaSelect');
+    var citySelect = document.querySelector('.citySelect');
+    var mapAreaLinks = document.querySelectorAll('.mapArea a');
+    var mapCityLinks = document.querySelectorAll('.mapCity a');
+
+    // 監聽區域選擇器的變化
+    areaSelect.addEventListener('change', function () {
+      var selectedArea = areaSelect.options[areaSelect.selectedIndex].getAttribute('data-class');
+      // 遍歷地圖區域的連結，並根據選擇器的值設置活動狀態
+      mapAreaLinks.forEach(function (link) {
+        if (link.getAttribute('data-class') === selectedArea) {
+          link.querySelectorAll('path').forEach(function (path) {
+            path.classList.add('active');
+          });
+        } else {
+          link.querySelectorAll('path').forEach(function (path) {
+            path.classList.remove('active');
+          });
+        }
+      });
+    });
+
+    // 監聽城市選擇器的變化
+    citySelect.addEventListener('change', function () {
+      var selectedCity = citySelect.options[citySelect.selectedIndex].getAttribute('data-class');
+      // 遍歷地圖城市的連結，並根據選擇器的值設置活動狀態
+      mapCityLinks.forEach(function (link) {
+        if (link.getAttribute('data-class') === selectedCity) {
+          link.querySelectorAll('path').forEach(function (path) {
+            path.classList.add('active');
+          });
+        } else {
+          link.querySelectorAll('path').forEach(function (path) {
+            path.classList.remove('active');
+          });
+        }
+      });
+    });
+
+    // 監聽地圖區域連結的點擊事件
+    mapAreaLinks.forEach(function (link) {
+      link.addEventListener('click', function (event) {
+        event.preventDefault();
+        var areaClass = link.getAttribute('data-class');
+        // 選擇相應的區域選擇器選項
+        var areaOption = areaSelect.querySelector("option[data-class='" + areaClass + "']");
+        if (areaOption) {
+          areaOption.selected = true;
+          // 觸發區域選擇器的 change 事件
+          areaSelect.dispatchEvent(new Event('change'));
+        }
+      });
+    });
+
+    // 監聽地圖城市連結的點擊事件
+    mapCityLinks.forEach(function (link) {
+      link.addEventListener('click', function (event) {
+        event.preventDefault();
+        var cityClass = link.getAttribute('data-class');
+        // 選擇相應的城市選擇器選項
+        var cityOption = citySelect.querySelector("option[data-class='" + cityClass + "']");
+        if (cityOption) {
+          cityOption.selected = true;
+          // 觸發城市選擇器的 change 事件
+          citySelect.dispatchEvent(new Event('change'));
+        }
+      });
+    });
+  });
+
   AOS.init();
 })();

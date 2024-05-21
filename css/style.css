@@ -2864,9 +2864,7 @@ em[tooltip]:focus-visible {
 .mainMenu > ul > li > a {
   display: block;
   padding: 0 1em;
-  min-height: 2.5em;
   font-weight: bold;
-  line-height: 2.5em;
   white-space: nowrap;
   color: #3a3a3a;
   box-sizing: border-box;
@@ -2920,12 +2918,15 @@ em[tooltip]:focus-visible {
   display: none;
   overflow: visible;
   width: 99%;
-  background: rgba(0, 0, 0, 0.8);
   padding: 0;
   opacity: 0;
   list-style: none;
   text-align: left;
   font-size: 0.875em;
+}
+.mainMenu ul li ul li.hasChild > ul li {
+  padding-left: 1em;
+  border-top: 1px dashed rgba(255, 255, 255, 0.3);
 }
 .mainMenu ul li ul li.hasChild.active > ul {
   opacity: 1;
@@ -2935,7 +2936,7 @@ em[tooltip]:focus-visible {
   padding-right: 2em;
 }
 .mainMenu ul li ul li.hasChild > a:hover, .mainMenu ul li ul li.hasChild > a:focus-visible {
-  color: #eb0202;
+  color: #9af8ff;
 }
 .mainMenu ul li ul li.hasChild > a:after {
   content: "";
@@ -7545,10 +7546,12 @@ br {
 .mapCity .st5,
 .mapArea .st5 {
   font-size: 2rem;
+  pointer-events: none;
 }
 .mapCity .st6,
 .mapArea .st6 {
   font-size: 1.5rem;
+  pointer-events: none;
 }
 
 h1.title,
