@@ -513,7 +513,7 @@ body {
   font-weight: normal;
   color: #3a3a3a;
   line-height: 1.6em;
-  font-family: "Noto Sans TC", Lato, "PingFang TC", "Helvetica Neue", Helvetica, 微軟正黑體, Arial, sans-serif;
+  font-family: Lato, "PingFang TC", "Helvetica Neue", Helvetica, 微軟正黑體, Arial, sans-serif;
   -webkit-text-size-adjust: none;
 }
 body.smallSize {
