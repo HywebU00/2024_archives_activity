@@ -221,7 +221,7 @@ h2.title {
           }
         }
       }
-      $fileType: doc, docx, odt, xls, xlsx, csv, ods, ppt, pptx, odp, zip, txt, mov, mp3, jpg, wmv, mp4, pdf, other;
+      $fileType: doc, docx, odt, xls, xlsx, csv, ods, ppt, pptx, odp, zip, 7z, txt, mov, mp3, jpg, wmv, mp4, pdf, other;
       //notice 保留file_比較清楚知道是對應什麼
       @each $fileType in $fileType {
         span.file_#{$fileType} {
@@ -285,7 +285,8 @@ h2.title {
             }
           }
         }
-        &.file_zip {
+        &.file_zip,
+        &.file_7z {
           a {
             background: #eb712e;
             &:hover,

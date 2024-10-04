@@ -7890,6 +7890,15 @@ h2.title {
 .cp .fileDownload li span.file_zip a:hover, .cp .fileDownload li span.file_zip a:focus-visible {
   color: #fff;
 }
+.cp .fileDownload li span.file_7z a {
+  color: #fff;
+  font-weight: bold;
+  padding: 0.2em 0.8em;
+  border-radius: 3px;
+}
+.cp .fileDownload li span.file_7z a:hover, .cp .fileDownload li span.file_7z a:focus-visible {
+  color: #fff;
+}
 .cp .fileDownload li span.file_txt a {
   color: #fff;
   font-weight: bold;
@@ -7990,10 +7999,10 @@ h2.title {
 .cp .fileDownload li span.file_pdf a:hover, .cp .fileDownload li span.file_pdf a:focus-visible {
   background: #b30000;
 }
-.cp .fileDownload li span.file_zip a {
+.cp .fileDownload li span.file_zip a, .cp .fileDownload li span.file_7z a {
   background: #eb712e;
 }
-.cp .fileDownload li span.file_zip a:hover, .cp .fileDownload li span.file_zip a:focus-visible {
+.cp .fileDownload li span.file_zip a:hover, .cp .fileDownload li span.file_zip a:focus-visible, .cp .fileDownload li span.file_7z a:hover, .cp .fileDownload li span.file_7z a:focus-visible {
   background: #e96117;
 }
 .cp .fileDownload li span.file_txt a, .cp .fileDownload li span.file_other a {
