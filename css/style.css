@@ -2319,16 +2319,16 @@ hr {
   transform: translateY(-50%);
   transition: all 0.2s ease-in-out;
 }
-.more:hover {
+.more:hover, .more:focus-visible {
   color: #fff;
 }
-.more:hover::before {
+.more:hover::before, .more:focus-visible::before {
   right: -90%;
   top: -35%;
   background-color: #116c72;
   transform: translateX(-50%) scaleY(1.3) scaleX(1.25);
 }
-.more:hover::after {
+.more:hover::after, .more:focus-visible::after {
   transform: translateX(5px);
   opacity: 1;
 }
@@ -5155,15 +5155,6 @@ table.tableSprite tr:nth-child(even) {
 }
 .tabSet .tabContent.active {
   display: block;
-}
-.tabSet .tabContent a:focus {
-  outline: none;
-  box-shadow: 0 0px 0px 2px #ef5714 inset;
-}
-@media screen and (max-width: 767px) {
-  .tabSet .tabContent a:focus {
-    box-shadow: none;
-  }
 }
 .tabSet .modeBBtn {
   width: 100%;

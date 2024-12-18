@@ -407,43 +407,50 @@ function randomLetter(max) {
 // -----------------------------------------------------------------------
 // -----  MENU初始化 ------------------------------------------------------
 // -----------------------------------------------------------------------
+
 function menu() {
-  //   // menu初始化 新增側欄選單
-  //   const body = document.querySelector('body');
-  //   const sidebar = document.createElement('aside');
-  //   sidebar.className = 'mobileSidebar';
-  //   sidebar.style = 'opacity:0;';
-
-  //   //創建黑色遮罩
-  //   body.insertAdjacentHTML('beforeend', '<div class="menuOverlay"></div>');
-  //   sidebar.insertAdjacentHTML('beforeend', '<div class="mobileArea"><button type="button" class="sidebarClose">關閉</button></div>');
-  //   body.prepend(sidebar);
-
   const menuBtn = document.querySelector('.menuCtrlBtn');
   const mainMenu = document.querySelector('.mainMenu');
   const nav = document.querySelector('.navigation .navList');
   const clonedNav = nav.cloneNode(true);
-  // const hasChild = mainMenu.querySelectorAll('li ul');
-  // hasChild.forEach((i) => {
-  //   i.parentNode.classList.add('hasChild');
-  // });
 
-  //var menu = document.querySelector('.mainMenu');
-
-  // 綁定點擊事件
   menuBtn.addEventListener('click', function () {
-    // 判斷按鈕是否已經有 closeBtn class，如果有，則執行移除操作
     if (menuBtn.classList.contains('closeBtn')) {
       menuBtn.classList.remove('closeBtn');
       mainMenu.classList.remove('show');
       document.body.classList.remove('noscroll');
     } else {
-      // 如果按鈕沒有 closeBtn class，則執行添加操作
       menuBtn.classList.add('closeBtn');
       mainMenu.classList.add('show');
       document.body.classList.add('noscroll');
+      trapFocus(mainMenu, menuBtn);
     }
   });
+
+  function trapFocus(container, triggerElement) {
+    const focusableSelectors = ['a[href]:not([disabled])', 'button:not([disabled])', 'textarea:not([disabled])', 'input[type="text"]:not([disabled])', 'input[type="radio"]:not([disabled])', 'input[type="checkbox"]:not([disabled])', '[tabindex]:not([tabindex="-1"])'];
+    const focusableElements = container.querySelectorAll(focusableSelectors.join(','));
+    const firstFocusable = focusableElements[0];
+    const lastFocusable = focusableElements[focusableElements.length - 1];
+
+    container.addEventListener('keydown', function (event) {
+      if (event.key === 'Tab') {
+        if (event.shiftKey) {
+          // If Shift+Tab is pressed and focus is on the first element, move focus to the trigger element
+          if (document.activeElement === firstFocusable) {
+            event.preventDefault();
+            triggerElement.focus();
+          }
+        } else {
+          // If Tab is pressed and focus is on the last element, move focus to the trigger element
+          if (document.activeElement === lastFocusable) {
+            event.preventDefault();
+            triggerElement.focus();
+          }
+        }
+      }
+    });
+  }
 
   function checkScreenWidth() {
     if (window.innerWidth < 768) {
@@ -468,30 +475,8 @@ function menu() {
     // 每次視窗大小改變時都重新檢查
     checkScreenWidth();
   });
-
-  // if (window.innerWidth < windowWidthSmall) {
-  //   mainMenu.classList.add('mobileArea');
-  //   var clonedNavigation = nav.cloneNode(true);
-  //   if (clonedNavigation) {
-  //     mainMenu.appendChild(clonedNavigation);
-  //   }
-  // }
-
-  //   // menu初始化 新增側欄選單按鈕
-  //   const sidebarCtrlBtn = document.createElement('button');
-  //   sidebarCtrlBtn.className = 'sidebarCtrlBtn';
-  //   sidebarCtrlBtn.setAttribute('type', 'button');
-
-  //   const siteHeader = document.querySelector('.header .container');
-  //   siteHeader.prepend(sidebarCtrlBtn);
-
-  //   // menu初始化 複製手機版側欄選單
-  //   const mobileArea = document.querySelector('.mobileArea');
-  //   const cloneMenu = mainMenu.cloneNode(true);
-  //   cloneMenu.classList.add('sideMainMenu');
-  //   cloneMenu.classList.remove('mainMenu', 'megaMenu', 'menu');
-  //   mobileArea.append(cloneMenu);
 }
+
 menu();
 
 // -----------------------------------------------------------------------
