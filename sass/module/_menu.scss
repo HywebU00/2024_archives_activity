@@ -86,10 +86,6 @@
         white-space: nowrap;
         color: $colorWord;
         box-sizing: border-box;
-
-        &:focus-visible {
-          box-shadow: 0 0 0 2px inset $aHover;
-        }
       }
 
       &.hasChild {
@@ -131,6 +127,9 @@
         &:hover,
         &:focus-visible {
           color: $colorWordLight;
+        }
+        &:focus-visible {
+          box-shadow: 0 0 0 2px inset $aFocus;
         }
       }
 

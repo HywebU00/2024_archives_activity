@@ -925,13 +925,6 @@ kbd kbd {
   padding: 0.2em 1.5em;
   margin: 0;
 }
-.webSearch .formGrp button:hover, .webSearch .formGrp button:focus-visible,
-.webSearch .formGrp .btn:hover,
-.webSearch .formGrp .btn:focus-visible,
-.webSearch .formGrp .btnSearch:hover,
-.webSearch .formGrp .btnSearch:focus-visible {
-  box-shadow: none;
-}
 .webSearch .btnGrp {
   flex: 0 0 auto;
   margin: 0 0 0.5em;
@@ -2868,9 +2861,6 @@ em[tooltip]:focus-visible {
   color: #3a3a3a;
   box-sizing: border-box;
 }
-.mainMenu > ul > li > a:focus-visible {
-  box-shadow: 0 0 0 2px inset #0f6167;
-}
 .mainMenu > ul > li.hasChild > a:after {
   content: "";
   width: 4px;
@@ -2903,6 +2893,9 @@ em[tooltip]:focus-visible {
 }
 .mainMenu ul li a:hover, .mainMenu ul li a:focus-visible {
   color: #9af8ff;
+}
+.mainMenu ul li a:focus-visible {
+  box-shadow: 0 0 0 2px inset #ef5714;
 }
 .mainMenu ul li ul li a {
   padding: 0.65em 0;
