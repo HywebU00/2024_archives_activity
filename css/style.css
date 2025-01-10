@@ -1222,156 +1222,6 @@ kbd kbd {
   outline: none;
 }
 
-.btnGreen {
-  background: #298729;
-  border: 2px solid #67a1a5;
-  color: #116c72;
-  border-radius: 2em;
-}
-.btnGreen:hover {
-  background: #1d601d;
-  cursor: pointer;
-  color: #fff;
-  outline: none;
-}
-.btnGreen:focus-visible {
-  background: #1d601d;
-  border: 1px solid #113911;
-  cursor: pointer;
-  color: #fff;
-  outline: none;
-  box-shadow: 0 0px 0px 2px #ef5714;
-}
-.btnGreen.active {
-  background: #2f9b2f;
-  cursor: pointer;
-}
-
-.btnBlue {
-  background: #0066cc;
-  border: 2px solid #67a1a5;
-  color: #116c72;
-  border-radius: 2em;
-}
-.btnBlue:hover {
-  background: #004d99;
-  cursor: pointer;
-  color: #fff;
-  outline: none;
-}
-.btnBlue:focus-visible {
-  background: #004d99;
-  border: 1px solid #003366;
-  cursor: pointer;
-  color: #fff;
-  outline: none;
-  box-shadow: 0 0px 0px 2px #ef5714;
-}
-.btnBlue.active {
-  background: #0073e6;
-  cursor: pointer;
-}
-
-.btnYellow {
-  background: #fec61c;
-  border: 2px solid #67a1a5;
-  color: #116c72;
-  border-radius: 2em;
-}
-.btnYellow:hover {
-  background: #e7ae01;
-  cursor: pointer;
-  color: #fff;
-  outline: none;
-}
-.btnYellow:focus-visible {
-  background: #e7ae01;
-  border: 1px solid #b48801;
-  cursor: pointer;
-  color: #fff;
-  outline: none;
-  box-shadow: 0 0px 0px 2px #ef5714;
-}
-.btnYellow.active {
-  background: #fecd36;
-  cursor: pointer;
-}
-
-.btnOrange {
-  background: #d04500;
-  border: 2px solid #67a1a5;
-  color: #116c72;
-  border-radius: 2em;
-}
-.btnOrange:hover {
-  background: #9d3400;
-  cursor: pointer;
-  color: #fff;
-  outline: none;
-}
-.btnOrange:focus-visible {
-  background: #9d3400;
-  border: 1px solid #6a2300;
-  cursor: pointer;
-  color: #fff;
-  outline: none;
-  box-shadow: 0 0px 0px 2px #ef5714;
-}
-.btnOrange.active {
-  background: #ea4d00;
-  cursor: pointer;
-}
-
-.btnRed {
-  background: #d30000;
-  border: 2px solid #67a1a5;
-  color: #116c72;
-  border-radius: 2em;
-}
-.btnRed:hover {
-  background: #a00000;
-  cursor: pointer;
-  color: #fff;
-  outline: none;
-}
-.btnRed:focus-visible {
-  background: #a00000;
-  border: 1px solid #6d0000;
-  cursor: pointer;
-  color: #fff;
-  outline: none;
-  box-shadow: 0 0px 0px 2px #ef5714;
-}
-.btnRed.active {
-  background: #ed0000;
-  cursor: pointer;
-}
-
-.btnPurple {
-  background: #8c248d;
-  border: 2px solid #67a1a5;
-  color: #116c72;
-  border-radius: 2em;
-}
-.btnPurple:hover {
-  background: #641a65;
-  cursor: pointer;
-  color: #fff;
-  outline: none;
-}
-.btnPurple:focus-visible {
-  background: #641a65;
-  border: 1px solid #3c0f3c;
-  cursor: pointer;
-  color: #fff;
-  outline: none;
-  box-shadow: 0 0px 0px 2px #ef5714;
-}
-.btnPurple.active {
-  background: #a029a2;
-  cursor: pointer;
-}
-
 .btnSubmit {
   background: #116c72;
   border: 2px solid #67a1a5;
@@ -1617,6 +1467,28 @@ hr {
   height: 1em;
   width: 1em;
   vertical-align: middle;
+}
+
+.i_play_dark:before {
+  aspect-ratio: 1/1;
+  -webkit-mask: url(../images/icon/icon_play_dark.svg) center center no-repeat;
+          mask: url(../images/icon/icon_play_dark.svg) center center no-repeat;
+  -webkit-mask-size: contain;
+          mask-size: contain;
+  margin-top: -0.1em;
+  margin-bottom: 0.1em;
+  background-color: #242424;
+}
+
+.i_reflash_dark:before {
+  aspect-ratio: 1/1;
+  -webkit-mask: url(../images/icon/icon_reflash_dark.svg) center center no-repeat;
+          mask: url(../images/icon/icon_reflash_dark.svg) center center no-repeat;
+  -webkit-mask-size: contain;
+          mask-size: contain;
+  margin-top: -0.1em;
+  margin-bottom: 0.1em;
+  background-color: #242424;
 }
 
 .i_add:before {
@@ -2824,7 +2696,7 @@ em[tooltip]:focus-visible {
   color: #fff;
 }
 .mainMenu .menuTitle {
-  font-size: 1.5rem;
+  font-size: 1.625rem;
   font-weight: bold;
   color: #fff;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
@@ -2860,6 +2732,15 @@ em[tooltip]:focus-visible {
   white-space: nowrap;
   color: #3a3a3a;
   box-sizing: border-box;
+}
+.mainMenu > ul > li.memberMenu li.hasChild > ul {
+  display: block;
+  opacity: 1;
+}
+.mainMenu > ul > li.memberMenu li.hasChild > ul > li a::before {
+  content: "-";
+  padding-right: 5px;
+  font-weight: normal;
 }
 .mainMenu > ul > li.hasChild > a:after {
   content: "";
@@ -2897,10 +2778,12 @@ em[tooltip]:focus-visible {
 .mainMenu ul li a:focus-visible {
   box-shadow: 0 0 0 2px inset #ef5714;
 }
-.mainMenu ul li ul li a {
+.mainMenu ul li ul li a,
+.mainMenu ul li ul li .menuSubTitle {
   padding: 0.65em 0;
   color: #fff;
   font-weight: 500;
+  font-size: 1.125em;
 }
 .mainMenu ul li ul li.active > a {
   color: #fff;

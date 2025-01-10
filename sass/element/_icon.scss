@@ -158,16 +158,16 @@
 // .i_pick_dark {
 //   @include hyUiIcon('icon_pick_dark');
 // }
-// .i_play_dark {
-//   @include hyUiIcon('icon_play_dark');
-// }
+.i_play_dark {
+  @include hyUiIcon('icon_play_dark');
+}
 
 // ---------------- Q ----------------
 
 // ---------------- R ----------------
-// .i_reflash_dark {
-//   @include hyUiIcon('icon_reflash_dark');
-// }
+.i_reflash_dark {
+  @include hyUiIcon('icon_reflash_dark');
+}
 // .i_rss_dark {
 //   @include hyUiIcon('icon_rss_dark');
 // }

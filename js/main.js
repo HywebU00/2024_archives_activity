@@ -631,11 +631,11 @@ function mainMenuSetup() {
     const checkUlWidth = hasChildLi[0].offsetWidth * hasChildLi.length - 1 || 0;
     const objectRect = hasChildLi[0].getBoundingClientRect();
 
-    if (windowWidth < objectRect.left + checkUlWidth) {
-      hasChildLi[0].classList.add('leftSlider');
-    } else {
-      hasChildLi[0].classList.remove('leftSlider');
-    }
+    // if (windowWidth < objectRect.left + checkUlWidth) {
+    //   hasChildLi[0].classList.add('leftSlider');
+    // } else {
+    //   hasChildLi[0].classList.remove('leftSlider');
+    // }
     //
     jsChildren(e.target, 'ul').forEach((i) => {
       const check = isObjectFullyVisible(i);
@@ -733,40 +733,40 @@ function mainMenuSetup() {
 
   // 鍵盤
   // keyup時
-  const control = mainMenu.querySelectorAll('li');
+  //const control = mainMenu.querySelectorAll('li');
 
-  control.forEach((i) => {
-    i.addEventListener('keyup', (e) => {
-      if (mode) {
-        const siblings = Array.prototype.filter.call(i.parentNode.children, (child) => {
-          return child !== i;
-        });
-        const target = e.target.parentNode.parentNode;
-        const hasChildLi = jsParents(e.target, '.hasChild');
-        if (hasChildLi.length > 0) {
-          const checkUlWidth = hasChildLi[0].offsetWidth * hasChildLi.length - 1 || 0;
-          const objectRect = hasChildLi[0].getBoundingClientRect();
-          if (windowWidth < objectRect.left + checkUlWidth) {
-            hasChildLi[0].classList.add('leftSlider');
-          } else {
-            hasChildLi[0].classList.remove('leftSlider');
-          }
-        }
+  // control.forEach((i) => {
+  //   i.addEventListener('keyup', (e) => {
+  //     if (mode) {
+  //       const siblings = Array.prototype.filter.call(i.parentNode.children, (child) => {
+  //         return child !== i;
+  //       });
+  //       const target = e.target.parentNode.parentNode;
+  //       const hasChildLi = jsParents(e.target, '.hasChild');
+  //       if (hasChildLi.length > 0) {
+  //         const checkUlWidth = hasChildLi[0].offsetWidth * hasChildLi.length - 1 || 0;
+  //         const objectRect = hasChildLi[0].getBoundingClientRect();
+  //         if (windowWidth < objectRect.left + checkUlWidth) {
+  //           hasChildLi[0].classList.add('leftSlider');
+  //         } else {
+  //           hasChildLi[0].classList.remove('leftSlider');
+  //         }
+  //       }
 
-        if (!isObjectFullyVisible(i)) {
-          let ele = parseFloat(window.getComputedStyle(target).top) || 0;
-          target.style.top = `${ele - 40}px`;
-        }
+  //       if (!isObjectFullyVisible(i)) {
+  //         let ele = parseFloat(window.getComputedStyle(target).top) || 0;
+  //         target.style.top = `${ele - 40}px`;
+  //       }
 
-        siblings.forEach((x) => {
-          x.classList.remove('active');
-          x.querySelectorAll('ul').forEach((s) => {
-            s.style.removeProperty('top');
-          });
-        });
-      }
-    });
-  });
+  //       siblings.forEach((x) => {
+  //         x.classList.remove('active');
+  //         x.querySelectorAll('ul').forEach((s) => {
+  //           s.style.removeProperty('top');
+  //         });
+  //       });
+  //     }
+  //   });
+  // });
 
   // 不focus時
   const lastA = mainMenu.querySelectorAll('a').length - 1;
