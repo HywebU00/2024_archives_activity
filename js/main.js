@@ -1531,8 +1531,14 @@ shareBtnFunction();
 
 function addFile() {
   const addFileName = document.querySelectorAll('.check_file');
+  const deleteButtons = document.querySelectorAll('.delete_file');
+
   addFileName.forEach((i) => {
     i.addEventListener('change', pushFileName);
+  });
+
+  deleteButtons.forEach((btn) => {
+    btn.addEventListener('click', deleteFile);
   });
 
   function pushFileName(e) {
@@ -1545,6 +1551,16 @@ function addFile() {
       fileName = e.target.files[0].name;
     }
     uploadInput.value = fileName;
+  }
+
+  // 刪除檔案功能
+  function deleteFile(e) {
+    const uploadGrp = e.target.closest('.uploadGrp'); // 找到對應的 uploadGrp 容器
+    const fileInput = uploadGrp.querySelector('.check_file'); // 找到檔案輸入框
+    const uploadInput = uploadGrp.querySelector('.upload_file'); // 找到文字輸入框
+
+    fileInput.value = ''; // 清空檔案輸入框的值
+    uploadInput.value = ''; // 清空文字輸入框的值
   }
 }
 addFile();

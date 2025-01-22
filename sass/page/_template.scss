@@ -222,3 +222,36 @@ body {
 .hidden {
   display: none;
 }
+
+.memberBlock {
+  display: flex;
+  justify-content: flex-end;
+  color: #fff;
+  margin: -2em auto 1em;
+  @media screen and (max-width: 375px) {
+    padding: 0 15px;
+  }
+  .content {
+    display: inline-flex;
+    padding: 0.5em 1.5em;
+    border-radius: 50px;
+    background-color: rgba(0, 0, 0, 0.45);
+    align-items: center;
+  }
+  .menberName {
+    display: inline-block;
+    margin-right: 0.5em;
+  }
+  a {
+    color: #fff;
+    font-weight: bold;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 5px;
+    display: inline-block;
+    margin-right: 0.5em;
+  }
+}
+
+.howtoBlock {
+}

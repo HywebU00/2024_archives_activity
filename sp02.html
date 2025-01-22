@@ -136,6 +136,10 @@
             </div>
           </section>
           <!-- Search End -->
+          <div class="container memberBlock">
+            <div class="content"><span class="menberName">王大明，您好！</span><a href="#" class="infoLink">帳號資訊</a><button class="btn btnSecondary">登出</button></div>
+          </div>
+
           <div class="container contentBox" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
             <nav aria-label="Breadcrumb" class="breadcrumb">
               <ul>
@@ -144,47 +148,115 @@
               </ul>
             </nav>
             <section class="sp">
-              <h2 class="title">會員登入</h2>
-              <p>註:<abbr class="necessary" title="“為必填(選)欄位,不能為空白。“">*</abbr>為必填(選)欄位, 不能為空白。</p>
-              <form action="">
-                <div class="flexForm formGrid">
-                  <div class="formGrp">
-                    <label for="username" class="formTitle" aria-required="true">帳號<abbr class="necessary" title="“為必填(選)欄位,不能為空白。“">*</abbr></label>
-                    <div class="formContent">
-                      <input name="" type="text" title="請輸入帳號" placeholder="請輸入帳號" />
-                      <div class="noticeInfo">
-                        請輸入帳號 <a class="close" aria-label="關閉" role="button" tabindex="0"><img src="images/basic/icon_close.svg" alt="" /></a>
-                      </div>
-                      <div class="noticeWarning">
-                        這似乎不是一個正常的格式 <a role="button" href="#" aria-label="關閉" class="close"><img src="images/basic/icon_close.svg" alt="" /></a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="formGrp">
-                    <label for="username" class="formTitle" aria-required="true">密碼<abbr class="necessary" title="“為必填(選)欄位,不能為空白。“">*</abbr></label>
-                    <div class="formContent">
-                      <input name="" type="password" title="請輸入密碼" placeholder="請輸入密碼" />
-                    </div>
-                  </div>
-                  <div class="formGrp">
-                    <div class="formTitle">驗證碼<abbr class="necessary" title="“為必填(選)欄位,不能為空白。“">*</abbr></div>
-                    <div class="formContent formInline">
-                      <img src="images/basic/captcha.gif" alt="" class="captcha" />
-                      <input name="" type="text" value="" title="請輸入驗證碼" />
-                      <button type="button" class="btn btnPrimary"><i class="i_reflash" aria-hidden="true" focusable="false"></i>重新整理</button>
-                      <button type="button" class="btn btnPrimary"><i class="i_play" aria-hidden="true" focusable="false"></i>語音播放</button>
-                      <div class="noticeError">
-                        您輸入的驗證碼錯誤 <a href="#" aria-label="關閉" class="close"><img src="images/basic/icon_close.svg" alt="" /></a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="btnGrp formInline">
-                    <button type="button" class="btn btnSubmit">查詢</button>
-                    <button type="button" class="btn btnReset">清除</button>
-                  </div>
-                </div>
-              </form>
+              <h2 class="title">活動刊登</h2>
+              <button class="btn btnPrimary"><i class="i_edit" aria-hidden="true" focusable="false"></i>刊登活動</button>
+              <div class="howtoBlock">
+                <ul>
+                  <li>
+                    <b>審核狀態說明：</b>
+                    <br />[待審核]：管理者審核中，資料尚未公開，請等待管理者審核通過，審核通過後活動才會公開。<br />
+                    [通過]：管理者審核通過，活動已公開。<br />
+                    [不通過]：管理者審核不通過，請點選活動管理「編輯」修改活動內容，再次送出申請。
+                  </li>
+                  <li>
+                    <b>成果刊登說明：</b><br />
+                    [編輯]：活動進行中或活動結束後，請點選「編輯」填寫成果刊登。 <br />[已完成]：已完成成果刊登。
+                  </li>
+                </ul>
+              </div>
+              <div class="tableWrapper">
+                <table>
+                  <!-- 無障礙 caption 標題預設隱藏 -->
+                  <caption>
+                    無障礙表格標題
+                    <!-- 若表格內容複雜，可以補充摘要(summary)來加強說明表格內容，但 內容不要與標題重複 -->
+                    <!-- <span class="summary">表格摘要</span> -->
+                  </caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">項次</th>
+                      <th scope="col">活動編號</th>
+                      <th scope="col">活動名稱</th>
+                      <th scope="col">活動日期</th>
+                      <th scope="col">刊登人員</th>
+                      <th scope="col">最後修改日期</th>
+                      <th scope="col">是否公開</th>
+                      <th scope="col">審核狀態</th>
+                      <th scope="col">活動管理</th>
+                      <th scope="col">成果刊登</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <!-- 不斷行 -->
+                      <td class="noWrap">AE1140128002</td>
+                      <td>澎湖地區司法文物聯合檔案展</td>
+                      <td>114-10-11 ~ 114-12-31</td>
+                      <td>王大明</td>
+                      <td>114-01-02 16:47:31</td>
+                      <td>不公開</td>
+                      <td>待審核</td>
+                      <td>
+                        <a href="" class="btn btnNormal">檢視</a>
+                      </td>
+                      <td>
+                        <a href="" class="btn btnPrimary">編輯</a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td class="noWrap">AE1140128001</td>
+                      <td>卷錄潭子檔傳啓示-淬鍊潭仔墘世紀風華展</td>
+                      <td>113-09-20 ~ 113-12-31</td>
+                      <td>王大明</td>
+                      <td>113-10-11 11:38:46</td>
+                      <td>公開</td>
+                      <td>通過</td>
+                      <td>
+                        <a href="" class="btn btnPrimary">編輯</a>
+                      </td>
+                      <td>
+                        <a href="" class="btn btnPrimary">編輯</a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td class="noWrap">AE1140113001</td>
+                      <td>淬煉財訓 金檔薪傳 經典檔案展</td>
+                      <td>113-01-01 ~ 113-12-31</td>
+                      <td>王大明</td>
+                      <td>113-03-02 15:47:09</td>
+                      <td>公開</td>
+                      <td>通過</td>
+                      <td>
+                        <a href="" class="btn btnPrimary">編輯</a>
+                      </td>
+                      <td>
+                        <a href="" class="btn btnNormal">已完成</a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </section>
+            <!-- Pagination -->
+            <div class="pagination">
+              <div class="formInline">
+                <div class="total">共<span>22</span>筆資料，第<span>1/2</span>頁，</div>
+                <div class="items">每頁顯示 <a href="#" class="active">20</a> <a href="#">40</a> <a href="#">60</a> 筆</div>
+              </div>
+              <ul class="page">
+                <li class="first"><a href="#" title="第一頁">第一頁</a></li>
+                <li class="prev"><a href="#" title="回上一頁">回上一頁 </a></li>
+                <li class="active"><a href="#">01</a></li>
+                <!-- 可以選擇在叫小尺寸時選擇隱藏部分按鈕 -->
+                <li><a href="#">02</a></li>
+                <li class="next"><a href="#" title="下一頁">下一頁</a></li>
+                <li class="last"><a href="#" title="最後一頁">最後一頁</a></li>
+              </ul>
+            </div>
+            <!-- Pagination End -->
           </div>
         </div>
       </main>

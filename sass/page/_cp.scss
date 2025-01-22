@@ -7,6 +7,7 @@ h2.title {
   margin: 0.5em 0;
   font-weight: 500;
 }
+
 // .tt{ color: #222; }
 .cp {
   h2.title {
@@ -14,22 +15,8 @@ h2.title {
     letter-spacing: 0;
   }
   h3.title {
-    color: $colorPrimary;
-    padding-left: 1em;
-    position: relative;
-    display: flex;
-    margin: 2em 0 1em;
-    &:before {
-      content: '';
-      position: absolute;
-      left: 12px;
-      top: 50%;
-      width: 5px;
-      height: 5px;
-      background: #67a1a5;
-      transform: rotate(-45deg) translateY(-50%);
-      box-shadow: 0 -10px 0 0 #67a1a5, -10px 0px 0 0 #67a1a5;
-    }
+    @extend %titleStyle;
+    font-size: 1.5em;
   }
   h4.title {
     font-size: 1em;

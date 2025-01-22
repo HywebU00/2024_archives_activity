@@ -325,69 +325,129 @@ window.addEventListener('load', () => {
     var mapAreaLinks = document.querySelectorAll('.mapArea a');
     var mapCityLinks = document.querySelectorAll('.mapCity a');
 
-    // 監聽區域選擇器的變化
-    areaSelect.addEventListener('change', function () {
-      var selectedArea = areaSelect.options[areaSelect.selectedIndex].getAttribute('data-class');
-      // 遍歷地圖區域的連結，並根據選擇器的值設置活動狀態
+    if (areaSelect && mapAreaLinks.length > 0) {
+      areaSelect.addEventListener('change', function () {
+        var selectedArea = areaSelect.options[areaSelect.selectedIndex].getAttribute('data-class');
+        mapAreaLinks.forEach(function (link) {
+          if (link.getAttribute('data-class') === selectedArea) {
+            link.querySelectorAll('path').forEach(function (path) {
+              path.classList.add('active');
+            });
+          } else {
+            link.querySelectorAll('path').forEach(function (path) {
+              path.classList.remove('active');
+            });
+          }
+        });
+      });
+
       mapAreaLinks.forEach(function (link) {
-        if (link.getAttribute('data-class') === selectedArea) {
-          link.querySelectorAll('path').forEach(function (path) {
-            path.classList.add('active');
-          });
-        } else {
-          link.querySelectorAll('path').forEach(function (path) {
-            path.classList.remove('active');
-          });
-        }
+        link.addEventListener('click', function (event) {
+          event.preventDefault();
+          var areaClass = link.getAttribute('data-class');
+          var areaOption = areaSelect.querySelector("option[data-class='" + areaClass + "']");
+          if (areaOption) {
+            areaOption.selected = true;
+            areaSelect.dispatchEvent(new Event('change'));
+          }
+        });
       });
-    });
+    }
 
-    // 監聽城市選擇器的變化
-    citySelect.addEventListener('change', function () {
-      var selectedCity = citySelect.options[citySelect.selectedIndex].getAttribute('data-class');
-      // 遍歷地圖城市的連結，並根據選擇器的值設置活動狀態
+    if (citySelect && mapCityLinks.length > 0) {
+      citySelect.addEventListener('change', function () {
+        var selectedCity = citySelect.options[citySelect.selectedIndex].getAttribute('data-class');
+        mapCityLinks.forEach(function (link) {
+          if (link.getAttribute('data-class') === selectedCity) {
+            link.querySelectorAll('path').forEach(function (path) {
+              path.classList.add('active');
+            });
+          } else {
+            link.querySelectorAll('path').forEach(function (path) {
+              path.classList.remove('active');
+            });
+          }
+        });
+      });
+
       mapCityLinks.forEach(function (link) {
-        if (link.getAttribute('data-class') === selectedCity) {
-          link.querySelectorAll('path').forEach(function (path) {
-            path.classList.add('active');
-          });
-        } else {
-          link.querySelectorAll('path').forEach(function (path) {
-            path.classList.remove('active');
-          });
-        }
+        link.addEventListener('click', function (event) {
+          event.preventDefault();
+          var cityClass = link.getAttribute('data-class');
+          var cityOption = citySelect.querySelector("option[data-class='" + cityClass + "']");
+          if (cityOption) {
+            cityOption.selected = true;
+            citySelect.dispatchEvent(new Event('change'));
+          }
+        });
       });
+    }
+  });
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const btnAdd = document.querySelector('.btnAdd'); // 新增場次按鈕
+    const sessionsGrp = document.querySelector('.sessionsGrp'); // 包含所有 sessionForm 的容器
+
+    // 確保按鈕和容器都存在，才執行功能
+    if (!btnAdd || !sessionsGrp) {
+      console.warn('新增場次功能無法執行，因為頁面中缺少必要的元素。');
+      return;
+    }
+
+    // 點擊新增按鈕時執行
+    btnAdd.addEventListener('click', () => {
+      const sessionForms = sessionsGrp.querySelectorAll('.sessionForm'); // 獲取所有 sessionForm
+      const sessionCount = sessionForms.length; // 計算目前的 sessionForm 數量
+      const newSessionNum = sessionCount + 1; // 新的 sessionForm 編號
+
+      // 複製第一個 sessionForm 的內容
+      const firstSessionForm = sessionForms[0];
+      if (!firstSessionForm) {
+        console.warn('無法新增場次，因為頁面中沒有初始的 sessionForm。');
+        return;
+      }
+
+      const newSessionForm = firstSessionForm.cloneNode(true); // 深度複製第一個 sessionForm
+      const orderElement = newSessionForm.querySelector('.order'); // 更新編號
+
+      // 修改新的 sessionForm 的編號
+      orderElement.innerHTML = `第<span class="num">${newSessionNum}</span>筆資料`;
+
+      // 確保新的 sessionForm 不重複原有的刪除按鈕事件
+      const btnDelete = newSessionForm.querySelector('.btnDelete');
+      if (!btnDelete) {
+        // 如果複製的 sessionForm 沒有刪除按鈕，新增一個
+        const deleteButton = document.createElement('button');
+        deleteButton.classList.add('btnDelete');
+        deleteButton.textContent = '刪除此筆';
+        newSessionForm.appendChild(deleteButton);
+
+        // 為刪除按鈕添加事件監聽
+        deleteButton.addEventListener('click', () => {
+          deleteSession(newSessionForm);
+        });
+      } else {
+        // 如果有刪除按鈕，確保事件重新綁定
+        btnDelete.addEventListener('click', () => {
+          deleteSession(newSessionForm);
+        });
+      }
+
+      // 將新的 sessionForm 添加到 sessionsGrp 中
+      sessionsGrp.appendChild(newSessionForm);
     });
 
-    // 監聽地圖區域連結的點擊事件
-    mapAreaLinks.forEach(function (link) {
-      link.addEventListener('click', function (event) {
-        event.preventDefault();
-        var areaClass = link.getAttribute('data-class');
-        // 選擇相應的區域選擇器選項
-        var areaOption = areaSelect.querySelector("option[data-class='" + areaClass + "']");
-        if (areaOption) {
-          areaOption.selected = true;
-          // 觸發區域選擇器的 change 事件
-          areaSelect.dispatchEvent(new Event('change'));
-        }
-      });
-    });
+    // 刪除 sessionForm 的功能
+    function deleteSession(session) {
+      session.remove(); // 移除對應的 sessionForm
 
-    // 監聽地圖城市連結的點擊事件
-    mapCityLinks.forEach(function (link) {
-      link.addEventListener('click', function (event) {
-        event.preventDefault();
-        var cityClass = link.getAttribute('data-class');
-        // 選擇相應的城市選擇器選項
-        var cityOption = citySelect.querySelector("option[data-class='" + cityClass + "']");
-        if (cityOption) {
-          cityOption.selected = true;
-          // 觸發城市選擇器的 change 事件
-          citySelect.dispatchEvent(new Event('change'));
-        }
+      // 重新更新所有 sessionForm 的編號
+      const sessionForms = sessionsGrp.querySelectorAll('.sessionForm');
+      sessionForms.forEach((form, index) => {
+        const num = form.querySelector('.num');
+        num.textContent = index + 1; // 更新編號為正確的序列
       });
-    });
+    }
   });
 
   AOS.init();

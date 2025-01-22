@@ -8,7 +8,7 @@
 @mixin btnSetting($btnBg: #fff, $btnWordColor: $btnWordColor) {
   background: $btnBg;
   border: 2px solid #67a1a5;
-  color: $colorPrimary;
+  //color: $colorPrimary;
   // text-shadow:1px 1px 1px RGBA(0,0,0,.3);
   border-radius: $btnRadius;
   // @include gradient(lighten($btnBg, 5), darken($btnBg, 15), vertical);
@@ -129,6 +129,7 @@
   &:focus-visible {
     background: darken($colorPrimary, 10);
     border: solid 1px $colorPrimary;
+    color: #fff;
   }
 }
 // 次要按鈕

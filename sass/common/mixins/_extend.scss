@@ -45,3 +45,22 @@
 // @extend %arrowUp;           // 箭頭：上
 // @extend %arrowLeft;         // 箭頭：左
 // @extend %flexSet;           // 啟動 display:flex
+
+%titleStyle {
+  color: $colorPrimary;
+  padding-left: 1em;
+  position: relative;
+  display: flex;
+  margin: 2em 0 1em;
+  &:before {
+    content: '';
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    width: 5px;
+    height: 5px;
+    background: #67a1a5;
+    transform: rotate(-45deg) translateY(-50%);
+    box-shadow: 0 -10px 0 0 #67a1a5, -10px 0px 0 0 #67a1a5;
+  }
+}

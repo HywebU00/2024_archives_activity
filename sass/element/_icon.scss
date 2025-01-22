@@ -14,9 +14,8 @@
     mask: url(../images/icon/#{$iconImg}.svg) center center no-repeat;
     mask-size: contain;
     //background-size: contain;
-    margin-top: -0.1em;
-    margin-bottom: 0.1em;
-    background-color: #242424;
+    margin: -0.1em 0.1em 0.1em -0.1em;
+    background-color: #fff;
   }
 }
 //notice 這邊想想怕i直接接會比較不清楚，是否還是要繼續保留_可以再找別人討論看看
@@ -138,9 +137,12 @@
 // .i_man_dark {
 //   @include hyUiIcon('icon_man_dark');
 // }
-// .i_minus_dark {
-//   @include hyUiIcon('icon_minus_dark');
-// }
+.i_minus_dark {
+  @include hyUiIcon('icon_minus_dark');
+  &:before {
+    background-color: #333;
+  }
+}
 // .i_move_dark {
 //   @include hyUiIcon('icon_move_dark');
 // }
@@ -356,6 +358,9 @@
   @include hyUiIcon('icon_pick');
 }
 .i_play {
+  @include hyUiIcon('icon_play');
+}
+.i_publish {
   @include hyUiIcon('icon_play');
 }
 
