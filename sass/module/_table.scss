@@ -55,7 +55,9 @@ table {
   }
 }
 .tableList {
-  @include screen('xsMobile') {
+  max-width: 100%;
+  overflow-x: auto;
+  @include screen('mobile') {
     background-color: transparent; //Force table to not be like tables anymore
     thead,
     tbody,

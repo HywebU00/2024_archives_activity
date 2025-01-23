@@ -15,7 +15,7 @@
   &:hover {
     background: darken($btnBg, 10); // Old browsers
     cursor: pointer;
-    color: #fff;
+    color: $btnWordColor;
     outline: none;
     // @include gradient(lighten($btnBg, 10), darken($btnBg, 18), vertical);
   }
@@ -102,6 +102,7 @@
 }
 .btnReset {
   // @extend %btn;
+  @include btnSetting(#eee, $colorWord);
   min-width: 146px;
   max-width: 48%;
   font-size: rem(18);
