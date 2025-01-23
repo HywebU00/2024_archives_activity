@@ -1191,7 +1191,8 @@ kbd kbd {
   padding: 1em 0;
 }
 
-.sp .flexForm .btnAdd, .uploadGrp .uploadBtn,
+.sp .flexForm .btnAdd,
+.sp .flexForm .btnAddFile, .uploadGrp .uploadBtn,
 .uploadGrp .delete_file, .btn {
   font-size: 1em;
   touch-action: manipulation;
@@ -1207,7 +1208,8 @@ kbd kbd {
   min-width: 4em;
   margin: 0.25em 0.1em;
 }
-.sp .flexForm .btnAdd i, .uploadGrp .uploadBtn i,
+.sp .flexForm .btnAdd i,
+.sp .flexForm .btnAddFile i, .uploadGrp .uploadBtn i,
 .uploadGrp .delete_file i, .btn i {
   margin-right: 0.25em;
   margin-left: 0.25em;
@@ -1215,7 +1217,7 @@ kbd kbd {
 
 .btn {
   background: #fff;
-  border: 2px solid #67a1a5;
+  border: 2px solid white;
   border-radius: 2em;
   text-shadow: none;
 }
@@ -1244,7 +1246,7 @@ kbd kbd {
 
 .btnSubmit {
   background: #116c72;
-  border: 2px solid #67a1a5;
+  border: 2px solid #148188;
   border-radius: 2em;
   color: #fff;
   min-width: 146px;
@@ -2134,7 +2136,7 @@ hr {
 .more {
   display: block;
   width: 214px;
-  margin: 0 auto;
+  margin: 2em auto 1em;
   border-radius: 50px;
   border: 2px solid #67a1a5;
   background: #fff;
@@ -6924,6 +6926,81 @@ br {
   right: -50px;
 }
 
+.cpMainSlider {
+  width: 800px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+.cpMainSlider .swiper {
+  background: #fff;
+  overflow: hidden;
+}
+.cpMainSlider .swiperArrow::before {
+  -webkit-mask: url("../vendor/swiper/ar.svg") center no-repeat;
+          mask: url("../vendor/swiper/ar.svg") center no-repeat;
+  background: #a6a1a1;
+}
+.cpMainSlider .swiperArrow.prevSlider {
+  left: -60px;
+}
+.cpMainSlider .swiperArrow.nextSlider {
+  right: -60px;
+}
+.cpMainSlider .swiperDots .swiper-pagination-bullet {
+  /* 點的顏色 */
+  background: #116c72;
+}
+.cpMainSlider .swiperDots .swiper-pagination-bullet:hover, .cpMainSlider .swiperDots .swiper-pagination-bullet:focus-visible {
+  background: #21baff;
+}
+.cpMainSlider .swiperDots .swiper-pagination-bullet:focus-visible {
+  background: #ff3e4d;
+}
+.cpMainSlider .swiperDots .swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background: #116c72;
+}
+.cpMainSlider .swiperDots .swiper-pagination-bullet.swiper-pagination-bullet-active:focus-visible {
+  box-shadow: 0 0 2px #116c72;
+}
+.cpMainSlider .imgContainer {
+  overflow: hidden;
+  position: relative;
+  overflow: hidden;
+}
+.cpMainSlider .imgContainer img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  display: block;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: 50% 50%;
+     object-position: 50% 50%;
+}
+.cpMainSlider .caption {
+  padding: 0.85em 0.5em;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.9) 10%, rgba(0, 0, 0, 0) 100%);
+  color: #fff;
+  font-size: 1rem;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  transition: 0.3s ease-out;
+}
+.cpMainSlider a {
+  color: #555;
+  display: block;
+}
+.cpMainSlider a:hover .caption, .cpMainSlider a:focus-visible .caption {
+  transform: translateY(0);
+}
+.cpMainSlider .swiperArrow {
+  padding: 0;
+}
+
+.cpSlider {
+  margin-bottom: 40px;
+}
 .cpSlider .swiper {
   background: #fff;
   overflow: hidden;
@@ -6938,6 +7015,22 @@ br {
 }
 .cpSlider .swiperArrow.nextSlider {
   right: -40px;
+}
+.cpSlider .swiperDots .swiper-pagination-bullet {
+  /* 點的顏色 */
+  background: #116c72;
+}
+.cpSlider .swiperDots .swiper-pagination-bullet:hover, .cpSlider .swiperDots .swiper-pagination-bullet:focus-visible {
+  background: #21baff;
+}
+.cpSlider .swiperDots .swiper-pagination-bullet:focus-visible {
+  background: #ff3e4d;
+}
+.cpSlider .swiperDots .swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background: #116c72;
+}
+.cpSlider .swiperDots .swiper-pagination-bullet.swiper-pagination-bullet-active:focus-visible {
+  box-shadow: 0 0 2px #116c72;
 }
 .cpSlider .imgContainer {
   overflow: hidden;
@@ -7510,14 +7603,49 @@ h2.title {
     margin-bottom: 0.5em;
   }
 }
-.cp .videoContainer {
+.cp .videoContainer a {
+  position: relative;
+  display: flex;
   margin: 0 auto;
   width: 600px;
   max-width: 100%;
 }
-.cp .videoContainer iframe {
+.cp .videoContainer a::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+}
+.cp .videoContainer a::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  background: url(../images/basic/icon_play.svg) no-repeat center;
+  background-size: contain;
+  opacity: 0.8;
+  transition: 0.3s;
+}
+.cp .videoContainer a:hover::before {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+.cp .videoContainer a:hover::after {
+  opacity: 0.9;
+}
+.cp .videoContainer img {
   width: 100%;
   aspect-ratio: 16/9;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .cp .pic {
   float: left;
@@ -7974,7 +8102,7 @@ h2.title {
   flex-wrap: wrap;
 }
 .moreDetail .toggleDetailBtn {
-  margin: 2em auto 0;
+  margin: 2em auto;
   background-color: #116c72;
   color: #fff;
 }
@@ -8009,32 +8137,37 @@ h2.title {
   border-bottom-style: dashed;
   padding: 0.3em 0;
 }
-.sp .flexForm .btnAdd {
+.sp .flexForm .btnAdd,
+.sp .flexForm .btnAddFile {
   flex: 0 0 auto;
   width: auto;
-  background: #116c72;
-  border: 2px solid #67a1a5;
+  background: #ef5714;
+  border: 2px solid #f1682c;
   border-radius: 2em;
   color: #fff;
 }
-.sp .flexForm .btnAdd:hover {
-  background: #0a4246;
+.sp .flexForm .btnAdd:hover,
+.sp .flexForm .btnAddFile:hover {
+  background: #c3450d;
   cursor: pointer;
   color: #fff;
   outline: none;
 }
-.sp .flexForm .btnAdd:focus-visible {
-  background: #0a4246;
-  border: 1px solid #041819;
+.sp .flexForm .btnAdd:focus-visible,
+.sp .flexForm .btnAddFile:focus-visible {
+  background: #c3450d;
+  border: 1px solid #93340a;
   cursor: pointer;
   color: #fff;
   outline: none;
   box-shadow: 0 0px 0px 2px #ef5714;
 }
-.sp .flexForm .btnAdd.active {
-  background: #148188;
+.sp .flexForm .btnAdd.active,
+.sp .flexForm .btnAddFile.active {
+  background: #f1682c;
   cursor: pointer;
 }
+
 .sessionsGrp {
   width: 100%;
 }

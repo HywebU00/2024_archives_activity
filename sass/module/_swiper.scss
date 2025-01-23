@@ -238,7 +238,76 @@
   }
 }
 
+.cpMainSlider {
+  width: 800px;
+  max-width: 100%;
+  margin: 0 auto;
+  .swiper {
+    //margin: 0 40px;
+    background: #fff;
+    overflow: hidden;
+  }
+  .swiperArrow {
+    &::before {
+      mask: url('../vendor/swiper/ar.svg') center no-repeat;
+      background: #a6a1a1;
+    }
+    &.prevSlider {
+      left: -60px;
+    }
+    &.nextSlider {
+      right: -60px;
+    }
+  }
+  .swiperDots {
+    .swiper-pagination-bullet {
+      /* 點的顏色 */
+      background: $colorPrimary;
+      &:hover,
+      &:focus-visible {
+        background: #21baff;
+      }
+      &:focus-visible {
+        background: #ff3e4d;
+      }
+      &.swiper-pagination-bullet-active {
+        background: $colorPrimary;
+        &:focus-visible {
+          box-shadow: 0 0 2px $colorPrimary;
+        }
+      }
+    }
+  }
+  .imgContainer {
+    @include aspectRatio(4, 3);
+    overflow: hidden;
+  }
+  .caption {
+    padding: 0.85em 0.5em;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.9) 10%, rgba(0, 0, 0, 0) 100%);
+    color: #fff;
+    font-size: 1rem;
+    width: 100%;
+    @include textOverflow;
+    transition: 0.3s ease-out;
+  }
+  a {
+    color: #555;
+    display: block;
+    &:hover,
+    &:focus-visible {
+      .caption {
+        transform: translateY(0);
+      }
+    }
+  }
+  .swiperArrow {
+    padding: 0;
+  }
+}
+
 .cpSlider {
+  margin-bottom: 40px;
   .swiper {
     //margin: 0 40px;
     background: #fff;
@@ -254,6 +323,25 @@
     }
     &.nextSlider {
       right: -40px;
+    }
+  }
+  .swiperDots {
+    .swiper-pagination-bullet {
+      /* 點的顏色 */
+      background: $colorPrimary;
+      &:hover,
+      &:focus-visible {
+        background: #21baff;
+      }
+      &:focus-visible {
+        background: #ff3e4d;
+      }
+      &.swiper-pagination-bullet-active {
+        background: $colorPrimary;
+        &:focus-visible {
+          box-shadow: 0 0 2px $colorPrimary;
+        }
+      }
     }
   }
 

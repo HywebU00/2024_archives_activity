@@ -42,6 +42,23 @@ window.addEventListener('load', () => {
 
 // 自行加入的JS請寫在這裡
 (function () {
+  //cp主圖輪播
+  const cpMainSwiper = new Swiper('.cpMainSlider .swiper', {
+    slidesPerView: 1,
+    loop: false,
+    // 切換點
+    pagination: {
+      el: '.cpMainSlider .swiperDots',
+      bulletElement: 'button',
+      clickable: true,
+    },
+    // 切換箭頭
+    navigation: {
+      nextEl: '.cpMainSlider .nextSlider', //自行設定樣式
+      prevEl: '.cpMainSlider .prevSlider', //自行設定樣式
+      disabledClass: 'swiperArrow-disabled', //不可點選樣式
+    },
+  });
   //cp輪播
   const cpSwiper = new Swiper('.cpSlider .swiper', {
     slidesPerView: 2,
@@ -448,6 +465,38 @@ window.addEventListener('load', () => {
         num.textContent = index + 1; // 更新編號為正確的序列
       });
     }
+  });
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const uploadAlbum = document.querySelector('.formGrp.uploadAlbum');
+
+    if (!uploadAlbum) return;
+
+    const maxGroups = 5;
+
+    const btnAddFile = uploadAlbum.querySelector('.btnAddFile');
+
+    if (!btnAddFile) return;
+
+    btnAddFile.addEventListener('click', function () {
+      const currentGroups = uploadAlbum.querySelectorAll('.uploadGrp').length;
+
+      if (currentGroups >= maxGroups) return;
+
+      const newGroup = document.createElement('div');
+      newGroup.classList.add('uploadGrp');
+      newGroup.innerHTML = `
+      <input class="upload_file" type="text" title="檔案名稱" readonly />
+      <div class="uploadBtn">
+        <span>上傳檔案</span>
+        <input type="file" class="check_file" title="請選擇檔案" />
+      </div>
+      <button type="button" class="delete_file btnNormal">刪除檔案</button>
+    `;
+
+      const formContent = uploadAlbum.querySelector('.formContent');
+      formContent.insertBefore(newGroup, btnAddFile);
+    });
   });
 
   AOS.init();

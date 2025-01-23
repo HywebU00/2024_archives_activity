@@ -26,14 +26,13 @@
       border-bottom-style: dashed;
       padding: 0.3em 0;
     }
-    .btnAdd {
+    .btnAdd,
+    .btnAddFile {
       flex: 0 0 auto;
       width: auto;
       @extend %btn;
-      @include btnSetting($colorPrimary);
+      @include btnSetting($colorSecondary, #fff);
       color: #fff;
-    }
-    .btnDelete {
     }
   }
 }

@@ -7,7 +7,7 @@
 // 按鈕的共用設定
 @mixin btnSetting($btnBg: #fff, $btnWordColor: $btnWordColor) {
   background: $btnBg;
-  border: 2px solid #67a1a5;
+  border: 2px solid lighten($btnBg, 5);
   //color: $colorPrimary;
   // text-shadow:1px 1px 1px RGBA(0,0,0,.3);
   border-radius: $btnRadius;
