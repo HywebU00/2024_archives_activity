@@ -6868,7 +6868,7 @@ br {
   aspect-ratio: auto;
 }
 .eventsSlider .swiper .swiper-wrapper > div:first-child .textBox {
-  height: 150px;
+  height: auto;
 }
 .eventsSlider .swiper .swiper-wrapper > div:first-child .textBox .title {
   font-size: 1.25rem;
