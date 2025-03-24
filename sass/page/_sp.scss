@@ -33,6 +33,9 @@
       @extend %btn;
       @include btnSetting($colorSecondary, #fff);
       color: #fff;
+      &:focus-visible {
+        outline: 2px solid $colorPrimary;
+      }
     }
   }
 }

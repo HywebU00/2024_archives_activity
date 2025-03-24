@@ -408,6 +408,74 @@ function randomLetter(max) {
 // -----  MENU初始化 ------------------------------------------------------
 // -----------------------------------------------------------------------
 
+// function menu() {
+//   const menuBtn = document.querySelector('.menuCtrlBtn');
+//   const mainMenu = document.querySelector('.mainMenu');
+//   const nav = document.querySelector('.navigation .navList');
+//   const clonedNav = nav.cloneNode(true);
+
+//   menuBtn.addEventListener('click', function () {
+//     if (menuBtn.classList.contains('closeBtn')) {
+//       menuBtn.classList.remove('closeBtn');
+//       mainMenu.classList.remove('show');
+//       document.body.classList.remove('noscroll');
+//     } else {
+//       menuBtn.classList.add('closeBtn');
+//       mainMenu.classList.add('show');
+//       document.body.classList.add('noscroll');
+//       trapFocus(mainMenu, menuBtn);
+//     }
+//   });
+
+//   function trapFocus(container, triggerElement) {
+//     const focusableSelectors = ['a[href]:not([disabled])', 'button:not([disabled])', 'textarea:not([disabled])', 'input[type="text"]:not([disabled])', 'input[type="radio"]:not([disabled])', 'input[type="checkbox"]:not([disabled])', '[tabindex]:not([tabindex="-1"])'];
+//     const focusableElements = container.querySelectorAll(focusableSelectors.join(','));
+//     const firstFocusable = focusableElements[0];
+//     const lastFocusable = focusableElements[focusableElements.length - 1];
+
+//     container.addEventListener('keydown', function (event) {
+//       if (event.key === 'Tab') {
+//         if (event.shiftKey) {
+//           // If Shift+Tab is pressed and focus is on the first element, move focus to the trigger element
+//           if (document.activeElement === firstFocusable) {
+//             event.preventDefault();
+//             triggerElement.focus();
+//           }
+//         } else {
+//           // If Tab is pressed and focus is on the last element, move focus to the trigger element
+//           if (document.activeElement === lastFocusable) {
+//             event.preventDefault();
+//             triggerElement.focus();
+//           }
+//         }
+//       }
+//     });
+//   }
+
+//   function checkScreenWidth() {
+//     if (window.innerWidth < 768) {
+//       mainMenu.classList.add('mobileArea'); // 添加 mobileArea 類
+//       if (!mainMenu.contains(clonedNav)) {
+//         mainMenu.appendChild(clonedNav); // 將複製的 navigation 移入到 mainMenu 中
+//       }
+//     } else {
+//       mainMenu.classList.remove('mobileArea'); // 移除 mobileArea 類
+//       var existingNav = mainMenu.querySelector('.navigation');
+//       if (existingNav && existingNav !== nav) {
+//         mainMenu.removeChild(existingNav); // 移除已經存在的 navigation
+//       }
+//     }
+//   }
+
+//   // 在頁面加載完成後先執行一次檢查
+//   checkScreenWidth();
+
+//   // 監聽視窗大小改變事件
+//   window.addEventListener('resize', function () {
+//     // 每次視窗大小改變時都重新檢查
+//     checkScreenWidth();
+//   });
+// }
 function menu() {
   const menuBtn = document.querySelector('.menuCtrlBtn');
   const mainMenu = document.querySelector('.mainMenu');
@@ -415,7 +483,11 @@ function menu() {
   const clonedNav = nav.cloneNode(true);
 
   menuBtn.addEventListener('click', function () {
-    if (menuBtn.classList.contains('closeBtn')) {
+    toggleMenu();
+  });
+
+  function toggleMenu(close = false) {
+    if (menuBtn.classList.contains('closeBtn') || close) {
       menuBtn.classList.remove('closeBtn');
       mainMenu.classList.remove('show');
       document.body.classList.remove('noscroll');
@@ -425,7 +497,7 @@ function menu() {
       document.body.classList.add('noscroll');
       trapFocus(mainMenu, menuBtn);
     }
-  });
+  }
 
   function trapFocus(container, triggerElement) {
     const focusableSelectors = ['a[href]:not([disabled])', 'button:not([disabled])', 'textarea:not([disabled])', 'input[type="text"]:not([disabled])', 'input[type="radio"]:not([disabled])', 'input[type="checkbox"]:not([disabled])', '[tabindex]:not([tabindex="-1"])'];
@@ -436,13 +508,11 @@ function menu() {
     container.addEventListener('keydown', function (event) {
       if (event.key === 'Tab') {
         if (event.shiftKey) {
-          // If Shift+Tab is pressed and focus is on the first element, move focus to the trigger element
           if (document.activeElement === firstFocusable) {
             event.preventDefault();
             triggerElement.focus();
           }
         } else {
-          // If Tab is pressed and focus is on the last element, move focus to the trigger element
           if (document.activeElement === lastFocusable) {
             event.preventDefault();
             triggerElement.focus();
@@ -454,27 +524,28 @@ function menu() {
 
   function checkScreenWidth() {
     if (window.innerWidth < 768) {
-      mainMenu.classList.add('mobileArea'); // 添加 mobileArea 類
+      mainMenu.classList.add('mobileArea');
       if (!mainMenu.contains(clonedNav)) {
-        mainMenu.appendChild(clonedNav); // 將複製的 navigation 移入到 mainMenu 中
+        mainMenu.appendChild(clonedNav);
       }
     } else {
-      mainMenu.classList.remove('mobileArea'); // 移除 mobileArea 類
-      var existingNav = mainMenu.querySelector('.navigation');
+      mainMenu.classList.remove('mobileArea');
+      const existingNav = mainMenu.querySelector('.navigation');
       if (existingNav && existingNav !== nav) {
-        mainMenu.removeChild(existingNav); // 移除已經存在的 navigation
+        mainMenu.removeChild(existingNav);
       }
     }
   }
 
-  // 在頁面加載完成後先執行一次檢查
-  checkScreenWidth();
-
-  // 監聽視窗大小改變事件
-  window.addEventListener('resize', function () {
-    // 每次視窗大小改變時都重新檢查
-    checkScreenWidth();
+  // 監聽鍵盤按鍵事件 (ESC 關閉功能)
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape' && mainMenu.classList.contains('show')) {
+      toggleMenu(true);
+    }
   });
+
+  checkScreenWidth();
+  window.addEventListener('resize', checkScreenWidth);
 }
 
 menu();
