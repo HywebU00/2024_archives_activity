@@ -3179,8 +3179,8 @@ select::-ms-expand {
   margin: 0 0.5em 0.5em 0;
 }
 .flexForm .formTitle {
-  max-width: 150px;
-  flex: 0 0 150px;
+  max-width: 160px;
+  flex: 0 0 160px;
   color: #fff;
   display: flex;
   align-items: center;
@@ -3203,8 +3203,8 @@ select::-ms-expand {
   }
 }
 .flexForm .formTitle + .formContent[class*=formCol] {
-  flex-basis: calc(100% - 150px);
-  max-width: calc(100% - 150px);
+  flex-basis: calc(100% - 160px);
+  max-width: calc(100% - 160px);
   padding-top: 0;
   position: relative;
   min-height: 1px;
@@ -3225,9 +3225,9 @@ select::-ms-expand {
 }
 .flexForm .formContent {
   display: flex;
-  max-width: calc(100% - 150px);
+  max-width: calc(100% - 160px);
   flex: auto;
-  flex-basis: calc(100% - 150px);
+  flex-basis: calc(100% - 160px);
   position: relative;
   min-height: 56px;
   overflow: hidden;
