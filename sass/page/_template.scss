@@ -3,6 +3,7 @@
 }
 html {
   scroll-behavior: smooth;
+  scroll-padding: 20px;
 }
 body {
   &.noscroll {
