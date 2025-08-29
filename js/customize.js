@@ -499,5 +499,104 @@ window.addEventListener('load', () => {
     });
   });
 
+  //==============錨點功能==============
+  // 導覽列錨點滾動功能
+  document.addEventListener('DOMContentLoaded', function () {
+    const navLinks = document.querySelectorAll('.anchorNav a[href^="#"]');
+    const sections = [];
+
+    // 收集所有錨點對應的區塊
+    navLinks.forEach((link) => {
+      const targetId = link.getAttribute('href').substring(1);
+      const targetSection = document.getElementById(targetId);
+      if (targetSection) {
+        sections.push({
+          id: targetId,
+          element: targetSection,
+          link: link,
+        });
+      }
+    });
+
+    // 移除所有active class
+    function removeAllActive() {
+      navLinks.forEach((link) => link.classList.remove('active'));
+    }
+
+    // 點擊事件處理
+    navLinks.forEach((link) => {
+      link.addEventListener('click', function (e) {
+        // 不需要 preventDefault()，讓瀏覽器自然處理錨點跳轉
+        // CSS scroll-behavior: smooth 會處理平滑滾動
+
+        // 移除所有active class
+        removeAllActive();
+        // 為當前點擊的連結添加active class
+        this.classList.add('active');
+      });
+    });
+
+    // 滾動監聽功能
+    function updateActiveLink() {
+      const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+      const windowHeight = window.innerHeight;
+
+      let activeSection = null;
+
+      // 找出當前在視窗中最顯著的區塊
+      sections.forEach((section) => {
+        const rect = section.element.getBoundingClientRect();
+        const elementTop = rect.top + scrollPosition;
+        const elementBottom = elementTop + rect.height;
+
+        // 檢查區塊是否在視窗範圍內
+        // 考慮區塊頂部距離視窗頂部的位置
+        if (scrollPosition >= elementTop - 100 && scrollPosition < elementBottom - 100) {
+          activeSection = section;
+        }
+      });
+
+      // 如果沒有找到合適的區塊，使用第一個可見的區塊
+      if (!activeSection && sections.length > 0) {
+        for (let i = 0; i < sections.length; i++) {
+          const rect = sections[i].element.getBoundingClientRect();
+          if (rect.top <= windowHeight && rect.bottom >= 0) {
+            activeSection = sections[i];
+            break;
+          }
+        }
+      }
+
+      // 更新active狀態
+      removeAllActive();
+      if (activeSection) {
+        activeSection.link.classList.add('active');
+      }
+    }
+
+    // 使用節流函數優化滾動性能
+    let scrollTimeout;
+    function throttleScroll() {
+      if (scrollTimeout) {
+        return;
+      }
+      scrollTimeout = setTimeout(() => {
+        updateActiveLink();
+        scrollTimeout = null;
+      }, 10);
+    }
+
+    // 添加滾動事件監聽器
+    window.addEventListener('scroll', throttleScroll);
+
+    // 頁面載入時執行一次，確保初始狀態正確
+    updateActiveLink();
+
+    // 處理瀏覽器前進/後退按鈕
+    window.addEventListener('popstate', function () {
+      setTimeout(updateActiveLink, 100);
+    });
+  });
+
   AOS.init();
 })();
