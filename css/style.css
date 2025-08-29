@@ -7638,22 +7638,20 @@ br {
   align-items: flex-end;
 }
 .anchorNav li {
-  display: flex;
-  align-content: flex-end;
+  margin-bottom: 8px;
 }
 .anchorNav li a {
   display: flex;
   align-items: center;
   justify-content: flex-end;
   transition: all 0.2s;
-  transform-origin: 0 right;
+  transform-origin: right;
   padding: 5px 10px;
   color: #fff;
   border-radius: 30px;
   background-color: rgba(0, 0, 0, 0.5);
   width: 40px;
   height: 40px;
-  margin-bottom: 8px;
 }
 .anchorNav li a:hover, .anchorNav li a:focus {
   width: auto;
