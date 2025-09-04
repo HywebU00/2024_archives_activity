@@ -2559,7 +2559,7 @@ em[tooltip]:focus-visible {
 }
 .header h1 a {
   display: inline-block;
-  margin-left: 110px;
+  margin-left: 25px;
 }
 @media screen and (max-width: 1200px) {
   .header h1 a {
@@ -4982,7 +4982,7 @@ table.tableSprite tr:nth-child(even) {
 }
 .submenu li a {
   border-radius: 10px;
-  padding: 1.5em 3em;
+  padding: 1.5em 4em 1.5em 1.5em;
   display: block;
   position: relative;
   height: 100%;
@@ -4990,7 +4990,8 @@ table.tableSprite tr:nth-child(even) {
   overflow: hidden;
   text-decoration: none;
   color: #3a3a3a;
-  background: #efefef url(../images/menuList.svg) no-repeat right -100px bottom -100px;
+  background: #efefef url(../images/np_NAA.png) no-repeat right -100px bottom -100px;
+  background-size: 80px;
   font-size: 1.125rem;
   font-weight: bold;
   transition: 0.3s;
@@ -5016,7 +5017,7 @@ table.tableSprite tr:nth-child(even) {
 }
 .submenu li a:hover, .submenu li a:focus-visible {
   color: #fff;
-  background: #116c72 url(../images/menuList.svg) no-repeat right 0 bottom 0;
+  background: #116c72 url(../images/np_NAA.png) no-repeat right -20px bottom -8px;
 }
 .submenu li a:hover .num, .submenu li a:focus-visible .num {
   color: #fff;

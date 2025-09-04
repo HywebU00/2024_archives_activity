@@ -29,14 +29,15 @@
     a {
       //border: 1px solid #ddd;
       border-radius: 10px;
-      padding: 1.5em 3em;
+      padding: 1.5em 4em 1.5em 1.5em;
       display: block;
       position: relative;
       height: 100%;
       box-sizing: border-box;
       overflow: hidden;
       @include aSetting($colorWord);
-      background: #efefef url(../images/menuList.svg) no-repeat right -100px bottom -100px;
+      background: #efefef url(../images/np_NAA.png) no-repeat right -100px bottom -100px;
+      background-size: 80px;
       font-size: rem(18);
       font-weight: bold;
       transition: 0.3s;
@@ -57,7 +58,7 @@
       &:hover,
       &:focus-visible {
         color: #fff;
-        background: $colorPrimary url(../images/menuList.svg) no-repeat right 0 bottom 0;
+        background: $colorPrimary url(../images/np_NAA.png) no-repeat right -20px bottom -8px;
         .num {
           color: #fff;
         }
